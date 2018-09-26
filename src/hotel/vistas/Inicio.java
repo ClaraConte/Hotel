@@ -27,60 +27,121 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
+        menuPrincipal = new javax.swing.JMenuBar();
+        submenuArchivo = new javax.swing.JMenu();
+        itemSalir = new javax.swing.JMenuItem();
+        submenuHuespedes = new javax.swing.JMenu();
+        itemHuespedes = new javax.swing.JMenuItem();
+        submenuHabitaciones = new javax.swing.JMenu();
+        itemHabitaciones = new javax.swing.JMenuItem();
+        submenuReservas = new javax.swing.JMenu();
+        itemReservas = new javax.swing.JMenuItem();
+        submenuConsultas = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Archivo");
+        jDesktopPane2.setBackground(new java.awt.Color(65, 105, 160));
+        jDesktopPane2.setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jMenuItem1.setText("Salir");
-        jMenu1.add(jMenuItem1);
+        menuPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        menuPrincipal.setMaximumSize(new java.awt.Dimension(546, 32771));
+        menuPrincipal.setPreferredSize(new java.awt.Dimension(546, 25));
 
-        jMenuBar1.add(jMenu1);
+        submenuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/folder-1.png"))); // NOI18N
+        submenuArchivo.setText("Archivo");
+        submenuArchivo.setSize(new java.awt.Dimension(1, 1));
 
-        jMenu2.setText("Huéspedes");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Habitaciones");
-
-        jMenuItem2.setText("Tipo Habitaciones");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        itemSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/cancel.png"))); // NOI18N
+        itemSalir.setText("Salir");
+        itemSalir.setMaximumSize(new java.awt.Dimension(400, 100));
+        itemSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                itemSalirActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem2);
+        submenuArchivo.add(itemSalir);
 
-        jMenuBar1.add(jMenu3);
+        menuPrincipal.add(submenuArchivo);
 
-        jMenu4.setText("Reservas");
-        jMenuBar1.add(jMenu4);
+        submenuHuespedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/user-menu.png"))); // NOI18N
+        submenuHuespedes.setText("Huéspedes");
 
-        setJMenuBar(jMenuBar1);
+        itemHuespedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/id-card.png"))); // NOI18N
+        itemHuespedes.setText("Formulario de huéspedes");
+        itemHuespedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHuespedesActionPerformed(evt);
+            }
+        });
+        submenuHuespedes.add(itemHuespedes);
+
+        menuPrincipal.add(submenuHuespedes);
+
+        submenuHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/bank.png"))); // NOI18N
+        submenuHabitaciones.setText("Habitaciones");
+
+        itemHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/calendar-29.png"))); // NOI18N
+        itemHabitaciones.setText("Formulario de habitaciones");
+        itemHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHabitacionesActionPerformed(evt);
+            }
+        });
+        submenuHabitaciones.add(itemHabitaciones);
+
+        menuPrincipal.add(submenuHabitaciones);
+
+        submenuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/star.png"))); // NOI18N
+        submenuReservas.setText("Reservas");
+
+        itemReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/calendar-39.png"))); // NOI18N
+        itemReservas.setText("Hacer una reserva");
+        itemReservas.setActionCommand("Hacer reservas");
+        itemReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReservasActionPerformed(evt);
+            }
+        });
+        submenuReservas.add(itemReservas);
+
+        menuPrincipal.add(submenuReservas);
+
+        submenuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/analytics.png"))); // NOI18N
+        submenuConsultas.setText("Consultas");
+        menuPrincipal.add(submenuConsultas);
+
+        setJMenuBar(menuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 864, Short.MAX_VALUE)
+            .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void itemHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHabitacionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_itemHabitacionesActionPerformed
+
+    private void itemHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHuespedesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemHuespedesActionPerformed
+
+    private void itemReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReservasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemReservasActionPerformed
+
+    private void itemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSalirActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_itemSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,12 +179,16 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem itemHabitaciones;
+    private javax.swing.JMenuItem itemHuespedes;
+    private javax.swing.JMenuItem itemReservas;
+    private javax.swing.JMenuItem itemSalir;
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JMenuBar menuPrincipal;
+    private javax.swing.JMenu submenuArchivo;
+    private javax.swing.JMenu submenuConsultas;
+    private javax.swing.JMenu submenuHabitaciones;
+    private javax.swing.JMenu submenuHuespedes;
+    private javax.swing.JMenu submenuReservas;
     // End of variables declaration//GEN-END:variables
 }
