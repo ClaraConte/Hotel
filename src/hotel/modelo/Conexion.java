@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 
 public class Conexion {
-  private String url;
+    private String url;
     private String usuario;
     private String password;
 
@@ -22,11 +22,17 @@ public class Conexion {
         this.usuario = usuario;
         this.password = password;
 
-       
         Class.forName("org.mariadb.jdbc.Driver");
-
     }
-    
+
+    public Conexion() throws ClassNotFoundException {
+        this.url = "jdbc:mariadb://192.168.64.2/Hotel";
+        this.usuario = "propietario";
+        this.password = "1234";
+
+        Class.forName("org.mariadb.jdbc.Driver");
+    }
+
     public Connection getConexion() throws SQLException{
         if(conexion == null){
                    

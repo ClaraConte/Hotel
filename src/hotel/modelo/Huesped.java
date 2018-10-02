@@ -12,12 +12,12 @@ public class Huesped {
 
     private String huespedEmail;
 
-    private int huespedCelular;
+    private String huespedCelular;
 
     public Huesped() {
     }
 
-    public Huesped(int huespedId, int huespedDni, String huespedNombre, String huespedDomicilio, String huespedEmail, int huespedCelular) {
+    public Huesped(int huespedId, int huespedDni, String huespedNombre, String huespedDomicilio, String huespedEmail, String huespedCelular) {
         this.huespedId = huespedId;
         this.huespedDni = huespedDni;
         this.huespedNombre = huespedNombre;
@@ -26,7 +26,7 @@ public class Huesped {
         this.huespedCelular = huespedCelular;
     }
 
-    public Huesped(int huespedDni, String huespedNombre, String huespedDomicilio, String huespedEmail, int huespedCelular) {
+    public Huesped(int huespedDni, String huespedNombre, String huespedDomicilio, String huespedEmail, String huespedCelular) {
         this.huespedDni = huespedDni;
         this.huespedNombre = huespedNombre;
         this.huespedDomicilio = huespedDomicilio;
@@ -74,11 +74,11 @@ public class Huesped {
         this.huespedEmail = huespedEmail;
     }
 
-    public int getHuespedCelular() {
+    public String getHuespedCelular() {
         return huespedCelular;
     }
 
-    public void setHuespedCelular(int huespedCelular) {
+    public void setHuespedCelular(String huespedCelular) {
         this.huespedCelular = huespedCelular;
     }
     

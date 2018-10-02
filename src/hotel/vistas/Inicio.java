@@ -5,6 +5,10 @@
  */
 package hotel.vistas;
 
+import hotel.modelo.Conexion;
+import hotel.modelo.Habitacion;
+import hotel.modelo.HabitacionData;
+
 /**
  *
  * @author clara
@@ -152,6 +156,8 @@ public class Inicio extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
+        Conexion connection;
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -169,13 +175,28 @@ public class Inicio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
+        HabitacionData habitacionData;
+       // Habitacion habitacion;
+        Conexion conexion;
+        try {
+                conexion = new Conexion();
+                habitacionData = new HabitacionData(conexion);
+                habitacionData.obtenerHabitaciones().forEach(habitacion-> {
+                System.out.println("id habitacion: " + habitacion.getHabitacionId() );
+            });
+            System.out.println("conexio exitosa");
+            
+        } catch (Exception e) {
+            System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
+        }
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Inicio().setVisible(true);
             }
         });
+         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
