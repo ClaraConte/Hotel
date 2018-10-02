@@ -23,9 +23,6 @@
               <Image iconType="3" name="/hotel/vistas/resources/folder-1.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Archivo"/>
-            <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1, 1]"/>
-            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itemSalir">
@@ -161,6 +158,10 @@
           <Dimension value="[800, 600]"/>
         </Property>
       </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
     </Container>
   </SubComponents>
 </Form>

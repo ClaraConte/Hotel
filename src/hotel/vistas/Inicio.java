@@ -8,6 +8,8 @@ package hotel.vistas;
 import hotel.modelo.Conexion;
 import hotel.modelo.Habitacion;
 import hotel.modelo.HabitacionData;
+import hotel.modelo.Huesped;
+import hotel.modelo.HuespedData;
 
 /**
  *
@@ -150,7 +152,10 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws ClassNotFoundException {
+        Conexion conexion;
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -178,14 +183,14 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         HabitacionData habitacionData;
        // Habitacion habitacion;
-        Conexion conexion;
+      
         try {
                 conexion = new Conexion();
                 habitacionData = new HabitacionData(conexion);
                 habitacionData.obtenerHabitaciones().forEach(habitacion-> {
                 System.out.println("id habitacion: " + habitacion.getHabitacionId() );
             });
-            System.out.println("conexio exitosa");
+            System.out.println("conexion exitosa");
             
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
