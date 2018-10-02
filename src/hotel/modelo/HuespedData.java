@@ -30,7 +30,7 @@ public class HuespedData {
     public void guardarHuesped(Huesped huesped){
         try {
             
-            String sql = "INSERT INTO huesped (HuespedDni, HuespedNombre, HuespedDomicilio, HuespedEmail, HuespedCelular) VALUES ( ? , ? , ?, ?, ? );";
+            String sql = "INSERT INTO huesped (huespedDni, huespedNombre, huespedDomicilio, huespedEmail, huespedCelular) VALUES ( ? , ? , ?, ?, ? );";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, huesped.getHuespedDni());
