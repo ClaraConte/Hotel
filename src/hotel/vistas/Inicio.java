@@ -10,6 +10,9 @@ import hotel.modelo.Habitacion;
 import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
+import java.awt.ComponentOrientation;
+
+import javax.swing.JFrame;
 
 
 /**
@@ -23,6 +26,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -34,7 +38,7 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        escritorio = new javax.swing.JDesktopPane();
         menuPrincipal = new javax.swing.JMenuBar();
         submenuArchivo = new javax.swing.JMenu();
         itemSalir = new javax.swing.JMenuItem();
@@ -48,8 +52,9 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPane2.setBackground(new java.awt.Color(65, 105, 160));
-        jDesktopPane2.setPreferredSize(new java.awt.Dimension(800, 600));
+        escritorio.setBackground(new java.awt.Color(65, 105, 160));
+        escritorio.setPreferredSize(new java.awt.Dimension(800, 577));
+        escritorio.setLayout(null);
 
         menuPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuPrincipal.setMaximumSize(new java.awt.Dimension(546, 32771));
@@ -57,7 +62,6 @@ public class Inicio extends javax.swing.JFrame {
 
         submenuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/folder-1.png"))); // NOI18N
         submenuArchivo.setText("Archivo");
-        submenuArchivo.setSize(new java.awt.Dimension(1, 1));
 
         itemSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/cancel.png"))); // NOI18N
         itemSalir.setText("Salir");
@@ -124,11 +128,11 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -139,7 +143,13 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_itemHabitacionesActionPerformed
 
     private void itemHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHuespedesActionPerformed
-        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaHuesped formularioHuesped = new VistaHuesped();
+        formularioHuesped.setVisible(true);
+        formularioHuesped.setLocation(250, 100);
+        escritorio.add(formularioHuesped);
+        escritorio.moveToFront(formularioHuesped);
     }//GEN-LAST:event_itemHuespedesActionPerformed
 
     private void itemReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReservasActionPerformed
@@ -220,11 +230,11 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem itemHabitaciones;
     private javax.swing.JMenuItem itemHuespedes;
     private javax.swing.JMenuItem itemReservas;
     private javax.swing.JMenuItem itemSalir;
-    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JMenuBar menuPrincipal;
     private javax.swing.JMenu submenuArchivo;
     private javax.swing.JMenu submenuConsultas;

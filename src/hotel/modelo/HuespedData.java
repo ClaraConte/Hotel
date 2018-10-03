@@ -78,20 +78,23 @@ public class HuespedData {
         }
     }
     
-    public Huesped buscarHuesped(int huespedId) {
+    public Huesped buscarHuesped(int huespedDni) {
         Huesped huesped = null;
         try {
 
-            String sql = "SELECT * FROM huesped WHERE huespedId =?;";
+            String sql = "SELECT * FROM huesped WHERE huespedDni = ?;";
 
-            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, huespedId);
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setInt(1, huespedDni);
+            
+            //System.out.printnl(Statement.RETURN_GENERATED_KEYS);
 
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 huesped = new Huesped();
-                huesped.setHuespedId(resultSet.getInt("huespedId"));
+              //  huesped.setHuespedId(resultSet.getInt("huespedId"));
                 huesped.setHuespedDni(resultSet.getInt("huespedDni"));
                 huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
                 huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));
