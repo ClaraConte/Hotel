@@ -16,31 +16,32 @@ import java.sql.Statement;
  * @author Marcelo
  */
 public class HuespedData {
- private Connection connection = null;
- 
-     public HuespedData(Conexion conexion) {
+
+    private Connection connection = null;
+
+    public HuespedData(Conexion conexion) {
         try {
             connection = conexion.getConexion();
         } catch (SQLException ex) {
             System.out.println("Error al abrir al obtener la conexion");
         }
-       }
-     
+    }
+
     /* @author Jesica*/
-    public void guardarHuesped(Huesped huesped){
+    public void guardarHuesped(Huesped huesped) {
         try {
-            
+
             String sql = "INSERT INTO huesped (huespedDni, huespedNombre, huespedDomicilio, huespedEmail, huespedCelular) VALUES ( ? , ? , ?, ?, ? );";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, huesped.getHuespedDni());
             statement.setString(2, huesped.getHuespedNombre());
             statement.setString(3, huesped.getHuespedDomicilio());
-            statement.setString (4, huesped.getHuespedEmail());
+            statement.setString(4, huesped.getHuespedEmail());
             statement.setString(5, huesped.getHuespedCelular());
-            
+
             statement.executeUpdate();
-            
+
             ResultSet rs = statement.getGeneratedKeys();
 
             if (rs.next()) {
@@ -49,9 +50,61 @@ public class HuespedData {
                 System.out.println("No se pudo obtener el id luego de insertar un huesped");
             }
             statement.close();
-    
+
         } catch (SQLException ex) {
             System.out.println("Error al insertar un huesped: " + ex.getMessage());
         }
+    }
+
+    public void editarHuesped(Huesped huesped) {
+        try {
+
+            String sql = "UPDATE huesped SET huespedDni = ?, huespedNombre = ? , huespedDomicilio = ? , huespedEmail = ? , huespedCelular = ? WHERE huespedId = ?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, huesped.getHuespedDni());
+            statement.setString(2, huesped.getHuespedNombre());
+            statement.setString(3, huesped.getHuespedDomicilio());
+            statement.setString(4, huesped.getHuespedEmail());
+            statement.setString(5, huesped.getHuespedCelular());
+
+            statement.setInt(6, huesped.getHuespedId());
+
+            statement.executeUpdate();
+            statement.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error al insertar un huesped: " + ex.getMessage());
+        }
+    }
+    
+    public Huesped buscarHuesped(int huespedId) {
+        Huesped huesped = null;
+        try {
+
+            String sql = "SELECT * FROM huesped WHERE huespedId =?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, huespedId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                huesped = new Huesped();
+                huesped.setHuespedId(resultSet.getInt("huespedId"));
+                huesped.setHuespedDni(resultSet.getInt("huespedDni"));
+                huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
+                huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));
+                huesped.setHuespedEmail(resultSet.getString("huespedEmail"));
+                huesped.setHuespedCelular(resultSet.getString("huespedCelular"));
+
+            }
+            statement.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error al mostrar huesped por ID: " + ex.getMessage());
+        }
+
+        return huesped;
     }
 }

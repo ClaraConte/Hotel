@@ -11,6 +11,7 @@ import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
 
+
 /**
  *
  * @author clara
@@ -146,22 +147,19 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_itemReservasActionPerformed
 
     private void itemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSalirActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_itemSalirActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws ClassNotFoundException {
-        Conexion conexion;
-        
-        
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         Conexion connection;
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -181,27 +179,44 @@ public class Inicio extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
+        Conexion conexion;
+
         HabitacionData habitacionData;
-       // Habitacion habitacion;
-      
+
+        Huesped huesped;
+        Huesped huespedEditar;
+        HuespedData huespedData;
+        int id = 1;
+
         try {
-                conexion = new Conexion();
-                habitacionData = new HabitacionData(conexion);
-                habitacionData.obtenerHabitaciones().forEach(habitacion-> {
-                System.out.println("id habitacion: " + habitacion.getHabitacionId() );
+            conexion = new Conexion();
+
+            huespedData = new HuespedData(conexion);
+            habitacionData = new HabitacionData(conexion);
+
+            huesped = huespedData.buscarHuesped(id);
+
+            // Test para ver si edita correctamente
+            huespedEditar = new Huesped(id, 3017871, "Clara conte", "La punta", "clara@hotmail.com", "2616266910");
+            huespedData.editarHuesped(huespedEditar);
+
+            // Test para mostrar todos los datos de la tabla de habitaciones
+            habitacionData.obtenerHabitaciones().forEach(habitacion -> {
+                System.out.println("id habitacion: " + habitacion.getHabitacionId());
+
             });
             System.out.println("conexion exitosa");
-            
+
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
         }
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Inicio().setVisible(true);
             }
         });
-         
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
