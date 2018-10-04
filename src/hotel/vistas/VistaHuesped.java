@@ -243,7 +243,9 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
        int huespedDni=Integer.parseInt(JThuespedDni.getText());
-       huespedData.borrarHuesped(huespedDni);// TODO add your handling code here:
+       huespedData.borrarHuesped(huespedDni);
+       
+        JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");
     }//GEN-LAST:event_huespedBorrarActionPerformed
 
     private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
@@ -251,7 +253,11 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_huespedEditarActionPerformed
 
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
-        // TODO add your handling code here:
+    JThuespedDni.setText("");
+    JThuespedNombre.setText("");
+    JThuespedDomicilio.setText("");
+    JThuespedEmail.setText("");
+     JThuespedCelular.setText("");
     }//GEN-LAST:event_huespedLimpiarActionPerformed
 
 

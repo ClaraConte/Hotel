@@ -26,7 +26,7 @@ public class Conexion {
     }
 
     public Conexion() throws ClassNotFoundException {
-        this.url = "jdbc:mariadb://192.168.64.2/Hotel";
+       this.url = "jdbc:mariadb://192.168.64.2/Hotel";
         this.usuario = "propietario";
         this.password = "1234";
 
