@@ -110,4 +110,23 @@ public class HuespedData {
 
         return huesped;
     }
+   public void borrarHuesped(int huespedDni){
+    try {
+            
+            String sql = "DELETE FROM huesped WHERE huespedDni =?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, huespedDni);
+           
+            
+            statement.executeUpdate();
+            
+            
+            statement.close();
+    
+        } catch (SQLException ex) {
+            System.out.println("Error al borrar un huesped: " + ex.getMessage());
+        }
 }
+} 
+

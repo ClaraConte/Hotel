@@ -242,7 +242,8 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_huespedBuscarActionPerformed
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
-        // TODO add your handling code here:
+       int huespedDni=Integer.parseInt(JThuespedDni.getText());
+       huespedData.borrarHuesped(huespedDni);// TODO add your handling code here:
     }//GEN-LAST:event_huespedBorrarActionPerformed
 
     private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
