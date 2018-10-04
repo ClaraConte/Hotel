@@ -59,7 +59,7 @@ public class HuespedData {
     public void editarHuesped(Huesped huesped) {
         try {
 
-            String sql = "UPDATE huesped SET huespedDni = ?, huespedNombre = ? , huespedDomicilio = ? , huespedEmail = ? , huespedCelular = ? WHERE huespedId = ?;";
+            String sql = "UPDATE huesped SET huespedDni = ?, huespedNombre = ? , huespedDomicilio = ? , huespedEmail = ? , huespedCelular = ? WHERE huespedDni = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, huesped.getHuespedDni());
@@ -68,7 +68,7 @@ public class HuespedData {
             statement.setString(4, huesped.getHuespedEmail());
             statement.setString(5, huesped.getHuespedCelular());
 
-            statement.setInt(6, huesped.getHuespedId());
+            statement.setInt(6, huesped.getHuespedDni());
 
             statement.executeUpdate();
             statement.close();
