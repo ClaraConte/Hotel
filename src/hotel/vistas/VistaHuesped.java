@@ -242,10 +242,17 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_huespedBuscarActionPerformed
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
-       int huespedDni=Integer.parseInt(JThuespedDni.getText());
-       huespedData.borrarHuesped(huespedDni);
        
-        JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");
+       int Dni=Integer.parseInt(huespedDni.getText());
+       huespedData.borrarHuesped(Dni);
+       
+       huespedDni.setText("");
+       huespedNombre.setText("");
+       huespedDomicilio.setText("");
+       huespedEmail.setText("");
+       huespedCelular.setText("");
+       
+       JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");
     }//GEN-LAST:event_huespedBorrarActionPerformed
 
     private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
@@ -253,11 +260,11 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_huespedEditarActionPerformed
 
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
-    JThuespedDni.setText("");
-    JThuespedNombre.setText("");
-    JThuespedDomicilio.setText("");
-    JThuespedEmail.setText("");
-     JThuespedCelular.setText("");
+        huespedDni.setText("");
+        huespedNombre.setText("");
+        huespedDomicilio.setText("");
+        huespedEmail.setText("");
+        huespedCelular.setText("");
     }//GEN-LAST:event_huespedLimpiarActionPerformed
 
 
