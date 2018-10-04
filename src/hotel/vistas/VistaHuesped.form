@@ -26,44 +26,41 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="textHuespedDni" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="textHuespedNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textHuespedDomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textHuespedEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textHuespedCelular" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textHuespedDni" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="textHuespedNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textHuespedDomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textHuespedEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textHuespedCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="huespedGuardar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="huespedEditar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="huespedLimpiar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="huespedBorrar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="JThuespedNombre" max="32767" attributes="0"/>
-                          <Component id="JThuespedDomicilio" max="32767" attributes="0"/>
-                          <Component id="JThuespedEmail" max="32767" attributes="0"/>
-                          <Component id="JThuespedCelular" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="JThuespedDni" min="-2" pref="310" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="huespedBuscar" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="huespedGuardar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="huespedEditar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="huespedLimpiar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="huespedBorrar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-                      <Component id="textTitleHuesped" min="-2" pref="260" max="-2" attributes="0"/>
+                  <Component id="huespedNombre" max="32767" attributes="0"/>
+                  <Component id="huespedDomicilio" max="32767" attributes="0"/>
+                  <Component id="huespedEmail" max="32767" attributes="0"/>
+                  <Component id="huespedCelular" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="huespedDni" min="-2" pref="310" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="huespedBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="136" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+              <Component id="textTitleHuesped" min="-2" pref="260" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,29 +77,29 @@
                       <Component id="textTitleHuesped" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="JThuespedDni" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="huespedDni" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="huespedBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JThuespedNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="huespedNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textHuespedNombre" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="textHuespedDomicilio" min="-2" max="-2" attributes="0"/>
-                  <Component id="JThuespedDomicilio" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="huespedDomicilio" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="textHuespedEmail" min="-2" max="-2" attributes="0"/>
-                  <Component id="JThuespedEmail" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="huespedEmail" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JThuespedCelular" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="huespedCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textHuespedCelular" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="54" max="32767" attributes="0"/>
@@ -154,24 +151,24 @@
         <Property name="text" type="java.lang.String" value="CELULAR"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JThuespedDni">
+    <Component class="javax.swing.JTextField" name="huespedDni">
     </Component>
-    <Component class="javax.swing.JTextField" name="JThuespedNombre">
+    <Component class="javax.swing.JTextField" name="huespedNombre">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JThuespedDomicilio">
+    <Component class="javax.swing.JTextField" name="huespedDomicilio">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JThuespedEmail">
+    <Component class="javax.swing.JTextField" name="huespedEmail">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JThuespedCelular">
+    <Component class="javax.swing.JTextField" name="huespedCelular">
     </Component>
     <Component class="javax.swing.JButton" name="huespedBuscar">
       <Properties>

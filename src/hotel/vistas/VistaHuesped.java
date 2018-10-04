@@ -50,11 +50,11 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
         textHuespedDomicilio = new javax.swing.JLabel();
         textHuespedEmail = new javax.swing.JLabel();
         textHuespedCelular = new javax.swing.JLabel();
-        JThuespedDni = new javax.swing.JTextField();
-        JThuespedNombre = new javax.swing.JTextField();
-        JThuespedDomicilio = new javax.swing.JTextField();
-        JThuespedEmail = new javax.swing.JTextField();
-        JThuespedCelular = new javax.swing.JTextField();
+        huespedDni = new javax.swing.JTextField();
+        huespedNombre = new javax.swing.JTextField();
+        huespedDomicilio = new javax.swing.JTextField();
+        huespedEmail = new javax.swing.JTextField();
+        huespedCelular = new javax.swing.JTextField();
         huespedBuscar = new javax.swing.JButton();
         huespedGuardar = new javax.swing.JButton();
         huespedBorrar = new javax.swing.JButton();
@@ -80,11 +80,11 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
 
         textHuespedCelular.setText("CELULAR");
 
-        JThuespedNombre.setToolTipText("");
+        huespedNombre.setToolTipText("");
 
-        JThuespedDomicilio.setToolTipText("");
+        huespedDomicilio.setToolTipText("");
 
-        JThuespedEmail.setToolTipText("");
+        huespedEmail.setToolTipText("");
 
         huespedBuscar.setText("BUSCAR");
         huespedBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -131,37 +131,36 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textHuespedNombre)
+                    .addComponent(textHuespedDomicilio)
+                    .addComponent(textHuespedEmail)
+                    .addComponent(textHuespedCelular))
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textHuespedNombre)
-                            .addComponent(textHuespedDomicilio)
-                            .addComponent(textHuespedEmail)
-                            .addComponent(textHuespedCelular))
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(huespedGuardar)
-                                .addGap(18, 18, 18)
-                                .addComponent(huespedEditar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(huespedLimpiar)
-                                .addGap(26, 26, 26)
-                                .addComponent(huespedBorrar))
-                            .addComponent(JThuespedNombre)
-                            .addComponent(JThuespedDomicilio)
-                            .addComponent(JThuespedEmail)
-                            .addComponent(JThuespedCelular)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JThuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(huespedBuscar))))
+                        .addComponent(huespedGuardar)
+                        .addGap(18, 18, 18)
+                        .addComponent(huespedEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(huespedLimpiar)
+                        .addGap(26, 26, 26)
+                        .addComponent(huespedBorrar))
+                    .addComponent(huespedNombre)
+                    .addComponent(huespedDomicilio)
+                    .addComponent(huespedEmail)
+                    .addComponent(huespedCelular)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(textTitleHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(huespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(huespedBuscar)))
                 .addContainerGap(136, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(256, 256, 256)
+                .addComponent(textTitleHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,23 +174,23 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
                         .addComponent(textTitleHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JThuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(huespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(huespedBuscar))))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JThuespedNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(huespedNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textHuespedNombre))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textHuespedDomicilio)
-                    .addComponent(JThuespedDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(huespedDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textHuespedEmail)
-                    .addComponent(JThuespedEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(huespedEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JThuespedCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(huespedCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textHuespedCelular))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -206,19 +205,20 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void huespedGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedGuardarActionPerformed
-       // Guarda  un huesped nuevo
+       // Guarda un huesped nuevo
 
-
-        int huespedDni=Integer.parseInt (JThuespedDni.getText());
-        String huespedNombre=JThuespedNombre.getText();
-        String huespedDomicilio=JThuespedDomicilio.getText();
-        String huespedEmail=JThuespedEmail.getText();
-        String huespedCelular=JThuespedCelular.getText();
+        int Dni = Integer.parseInt (huespedDni.getText());
+        String Nombre = huespedNombre.getText();
+        String Domicilio = huespedDomicilio.getText();
+        String Email = huespedEmail.getText();
+        String Celular = huespedCelular.getText();
         
-        Huesped huesped=new Huesped(huespedDni, huespedNombre, huespedDomicilio, huespedEmail, huespedCelular);
+        Huesped huesped = new Huesped(Dni, Nombre, Domicilio, Email, Celular);
         huespedData.guardarHuesped(huesped);
         
-      JOptionPane.showMessageDialog(huespedGuardar, "Nuevo huesped agregado ");
+        //Falta validar que el huesped se guardó correctamente y que el huesped no exista
+        
+        JOptionPane.showMessageDialog(huespedGuardar, " Nuevo huesped agregado ");
         
     }//GEN-LAST:event_huespedGuardarActionPerformed
 
@@ -226,14 +226,14 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
  
         // Búsca un huesped por DNI
 
-        int buscarHuespedDni = Integer.parseInt(JThuespedDni.getText());
+        int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
         Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
         
         if(huesped != null){
-            JThuespedNombre.setText(huesped.getHuespedNombre());
-            JThuespedDomicilio.setText(huesped.getHuespedDomicilio());
-            JThuespedEmail.setText(huesped.getHuespedEmail());
-            JThuespedCelular.setText(huesped.getHuespedCelular());
+            huespedNombre.setText(huesped.getHuespedNombre());
+            huespedDomicilio.setText(huesped.getHuespedDomicilio());
+            huespedEmail.setText(huesped.getHuespedEmail());
+            huespedCelular.setText(huesped.getHuespedCelular());
 
         } else{
             JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
@@ -252,20 +252,26 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
 
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
         // TODO add your handling code here:
+        huespedDni.setText("");
+        huespedNombre.setText("");
+        huespedDomicilio.setText("");
+        huespedEmail.setText("");
+        huespedCelular.setText("");
+        
     }//GEN-LAST:event_huespedLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField JThuespedCelular;
-    private javax.swing.JTextField JThuespedDni;
-    private javax.swing.JTextField JThuespedDomicilio;
-    private javax.swing.JTextField JThuespedEmail;
-    private javax.swing.JTextField JThuespedNombre;
     private javax.swing.JButton huespedBorrar;
     private javax.swing.JButton huespedBuscar;
+    private javax.swing.JTextField huespedCelular;
+    private javax.swing.JTextField huespedDni;
+    private javax.swing.JTextField huespedDomicilio;
     private javax.swing.JButton huespedEditar;
+    private javax.swing.JTextField huespedEmail;
     private javax.swing.JButton huespedGuardar;
     private javax.swing.JButton huespedLimpiar;
+    private javax.swing.JTextField huespedNombre;
     private javax.swing.JLabel textHuespedCelular;
     private javax.swing.JLabel textHuespedDni;
     private javax.swing.JLabel textHuespedDomicilio;
