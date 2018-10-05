@@ -79,7 +79,7 @@ public class HuespedData {
             System.out.println("Error al insertar un huesped: " + ex.getMessage());
         }
     }
-    
+
     public Huesped buscarHuesped(int huespedDni) {
         Huesped huesped = null;
         try {
@@ -87,16 +87,15 @@ public class HuespedData {
             String sql = "SELECT * FROM huesped WHERE huespedDni = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            
-            statement.setInt(1, huespedDni);
-            
-            //System.out.printnl(Statement.RETURN_GENERATED_KEYS);
 
+            statement.setInt(1, huespedDni);
+
+            //System.out.printnl(Statement.RETURN_GENERATED_KEYS);
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
                 huesped = new Huesped();
-              //  huesped.setHuespedId(resultSet.getInt("huespedId"));
+                //  huesped.setHuespedId(resultSet.getInt("huespedId"));
                 huesped.setHuespedDni(resultSet.getInt("huespedDni"));
                 huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
                 huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));
@@ -112,61 +111,48 @@ public class HuespedData {
 
         return huesped;
     }
-   public void borrarHuesped(int huespedDni){
-    try {
-            
+
+    public void borrarHuesped(int huespedDni) {
+        try {
+
             String sql = "DELETE FROM huesped WHERE huespedDni =?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, huespedDni);
-           
-            
+
             statement.executeUpdate();
-            
-            
+
             statement.close();
-    
+
         } catch (SQLException ex) {
             System.out.println("Error al borrar un huesped: " + ex.getMessage());
         }
+    }
+
+    public List<Huesped> obtenerHuespedes() {
+        List<Huesped> huespedes = new ArrayList<Huesped>();
+
+        try {
+            String sql = "SELECT * FROM  huesped;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            Huesped huesped;
+
+            while (resultSet.next()) {
+                huesped = new Huesped();
+                huesped.setHuespedDni(resultSet.getInt("huespedDni"));
+                huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
+                huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));
+                huesped.setHuespedEmail(resultSet.getString("huespedEmail"));
+                huesped.setHuespedCelular(resultSet.getString("huespedCelular"));
+
+                huespedes.add(huesped);
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener los huespedes " + ex.getMessage());
+        }
+        return huespedes;
+
+    }
 }
-
-
-public List<Huesped> obtenerHuespedes(){
- List<Huesped> huespedes = new
-ArrayList<Huesped>();
-
-
-    try
-       {
-         String sql = "SELECT * FROM  Huesped;";
-         PreparedStatement statement = connection.prepareStatement(sql);
-         ResultSet resultSet = statement.executeQuery();
-         Huesped huesped;
-         
-      while ( resultSet.next()){
-         huesped = new Huesped();
-
-
-huesped.setHuespedDni(resultSet.getInt("huespedDni"));
-
-huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
-
-huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));
-
-huesped.setHuespedEmail(resultSet.getString("huespedEmail"));
-    
-huesped.setHuespedCelular(resultSet.getString("huespedCelular"));
-
- huesped.add(huesped);}
-
-statement.close();
-}
-catch(SQLException ex){
-System.out.println("Error al obtener los huespedes " + ex.getMessage());
-}
-return huespedes;
-
-}
-}
-

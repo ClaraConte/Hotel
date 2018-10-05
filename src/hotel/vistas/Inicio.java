@@ -6,14 +6,9 @@
 package hotel.vistas;
 
 import hotel.modelo.Conexion;
-import hotel.modelo.Habitacion;
 import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
-import java.awt.ComponentOrientation;
-
-import javax.swing.JFrame;
-
 
 /**
  *
@@ -195,30 +190,38 @@ public class Inicio extends javax.swing.JFrame {
 
         Huesped huesped;
         Huesped huespedEditar;
-        HuespedData huespedData;
+        HuespedData huespedDataEditar;
+        HuespedData huespedDataListar;
+
         int id = 1;
 
         try {
             conexion = new Conexion();
 
-            huespedData = new HuespedData(conexion);
             habitacionData = new HabitacionData(conexion);
+            huespedDataEditar = new HuespedData(conexion);
+            huespedDataListar = new HuespedData(conexion);
 
-            huesped = huespedData.buscarHuesped(id);
+            // Test para editar huesped
+            huesped = huespedDataEditar.buscarHuesped(id);
 
-            // Test para ver si edita correctamente
-            huespedEditar = new Huesped(id, 3017871, "Clara conte", "La punta", "clara@hotmail.com", "2616266910");
-            huespedData.editarHuesped(huespedEditar);
+            huespedEditar = new Huesped(id, 3017871, "Clara conte", "La punta", "clara@clara.com", "2616266910");
+            huespedDataEditar.editarHuesped(huespedEditar);
+
+            // Test para ver listado de huéspedes
+            huespedDataListar.obtenerHuespedes().forEach(huespedes -> {
+                System.out.println("Nombre : " + huespedes.getHuespedNombre() + "  DNI : " + huespedes.getHuespedDni());
+
+            });
 
             // Test para mostrar todos los datos de la tabla de habitaciones
             habitacionData.obtenerHabitaciones().forEach(habitacion -> {
                 System.out.println("id habitacion: " + habitacion.getHabitacionId());
 
             });
-            System.out.println("conexion exitosa");
 
         } catch (Exception e) {
-            System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
+            System.out.println("Error al instanciar la clase conexionmm: " + e.getMessage());
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
