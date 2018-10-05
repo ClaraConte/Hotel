@@ -76,7 +76,7 @@ public class HuespedData {
             statement.close();
 
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un huesped: " + ex.getMessage());
+            System.out.println("Error al editar un huesped: " + ex.getMessage());
         }
     }
 

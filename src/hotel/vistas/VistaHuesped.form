@@ -26,40 +26,43 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="textHuespedDni" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                  <Component id="textHuespedNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="textHuespedDomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="textHuespedEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="textHuespedCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="huespedGuardar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="huespedEditar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="huespedLimpiar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="huespedBorrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="textHuespedDni" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                          <Component id="textHuespedNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textHuespedDomicilio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textHuespedEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textHuespedCelular" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="huespedGuardar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="huespedEditar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="huespedLimpiar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="huespedBorrar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="huespedNombre" max="32767" attributes="0"/>
+                          <Component id="huespedDomicilio" max="32767" attributes="0"/>
+                          <Component id="huespedEmail" max="32767" attributes="0"/>
+                          <Component id="huespedCelular" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="huespedDni" min="-2" pref="310" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="huespedBuscar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Component id="huespedNombre" max="32767" attributes="0"/>
-                  <Component id="huespedDomicilio" max="32767" attributes="0"/>
-                  <Component id="huespedEmail" max="32767" attributes="0"/>
-                  <Component id="huespedCelular" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="huespedDni" min="-2" pref="310" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="huespedBuscar" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="textTitleHuesped" min="-2" pref="260" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="136" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
-              <Component id="textTitleHuesped" min="-2" pref="260" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>

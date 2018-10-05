@@ -193,8 +193,6 @@ public class Inicio extends javax.swing.JFrame {
         HuespedData huespedDataEditar;
         HuespedData huespedDataListar;
 
-        int id = 1;
-
         try {
             conexion = new Conexion();
 
@@ -203,22 +201,18 @@ public class Inicio extends javax.swing.JFrame {
             huespedDataListar = new HuespedData(conexion);
 
             // Test para editar huesped
-            huesped = huespedDataEditar.buscarHuesped(id);
-
-            huespedEditar = new Huesped(id, 3017871, "Clara conte", "La punta", "clara@clara.com", "2616266910");
-            huespedDataEditar.editarHuesped(huespedEditar);
+            // huesped = new Huesped(30178718, "Claraconte", "La punta", "clara@clara.com", "2616266910");
+            // huespedDataEditar.editarHuesped(huesped);
 
             // Test para ver listado de huéspedes
             huespedDataListar.obtenerHuespedes().forEach(huespedes -> {
                 System.out.println("Nombre : " + huespedes.getHuespedNombre() + "  DNI : " + huespedes.getHuespedDni());
-
             });
 
             // Test para mostrar todos los datos de la tabla de habitaciones
-            habitacionData.obtenerHabitaciones().forEach(habitacion -> {
-                System.out.println("id habitacion: " + habitacion.getHabitacionId());
-
-            });
+            //habitacionData.obtenerHabitaciones().forEach(habitacion -> {
+            //   System.out.println("id habitacion: " + habitacion.getHabitacionId());
+            //});
 
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexionmm: " + e.getMessage());

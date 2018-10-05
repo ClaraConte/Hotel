@@ -268,7 +268,7 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
             huesped.setHuespedEmail(huespedEmail.getText());
             huesped.setHuespedCelular(huespedCelular.getText());
             
-            huespedData.guardarHuesped(huesped);
+            huespedData.editarHuesped(huesped);
             
             JOptionPane.showMessageDialog(huespedBuscar, " Datos editados! ");
         
