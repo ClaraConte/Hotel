@@ -81,5 +81,9 @@ public class Huesped {
     public void setHuespedCelular(String huespedCelular) {
         this.huespedCelular = huespedCelular;
     }
+
+    void add(Huesped huesped) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

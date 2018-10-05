@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -128,5 +130,43 @@ public class HuespedData {
             System.out.println("Error al borrar un huesped: " + ex.getMessage());
         }
 }
-} 
+
+
+public List<Huesped> obtenerHuespedes(){
+ List<Huesped> huespedes = new
+ArrayList<Huesped>();
+
+
+    try
+       {
+         String sql = "SELECT * FROM  Huesped;";
+         PreparedStatement statement = connection.prepareStatement(sql);
+         ResultSet resultSet = statement.executeQuery();
+         Huesped huesped;
+         
+      while ( resultSet.next()){
+         huesped = new Huesped();
+
+
+huesped.setHuespedDni(resultSet.getInt("huespedDni"));
+
+huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
+
+huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));
+
+huesped.setHuespedEmail(resultSet.getString("huespedEmail"));
+    
+huesped.setHuespedCelular(resultSet.getString("huespedCelular"));
+
+ huesped.add(huesped);}
+
+statement.close();
+}
+catch(SQLException ex){
+System.out.println("Error al obtener los huespedes " + ex.getMessage());
+}
+return huespedes;
+
+}
+}
 
