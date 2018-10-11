@@ -6,16 +6,23 @@ public class TipoHabitacion {
 
     private String tipoHabitacionNombre;
 
+    private int tipoHabitacioCapacidadMax;
+
+    private double tipoHabitacionPrecio;
+
     public TipoHabitacion() {
     }
 
-    public TipoHabitacion(int tipoHabitacionId, String tipoHabitacionNombre) {
+    public TipoHabitacion(int tipoHabitacionId, String tipoHabitacionNombre, int tipoHabitacioCapacidadMax, double tipoHabitacionPrecio) {
         this.tipoHabitacionId = tipoHabitacionId;
         this.tipoHabitacionNombre = tipoHabitacionNombre;
+        this.tipoHabitacioCapacidadMax = tipoHabitacioCapacidadMax;
     }
 
-    public TipoHabitacion(String tipoHabitacionNombre) {
+    public TipoHabitacion(String tipoHabitacionNombre, int tipoHabitacioCapacidadMax, double tipoHabitacionPrecio) {
         this.tipoHabitacionNombre = tipoHabitacionNombre;
+        this.tipoHabitacioCapacidadMax = tipoHabitacioCapacidadMax;
+        this.tipoHabitacionPrecio = tipoHabitacionPrecio;
     }
 
     public int getTipoHabitacionId() {
@@ -33,5 +40,21 @@ public class TipoHabitacion {
     public void setTipoHabitacionNombre(String tipoHabitacionNombre) {
         this.tipoHabitacionNombre = tipoHabitacionNombre;
     }
-    
+
+    public int getTipoHabitacioCapacidadMax() {
+        return tipoHabitacioCapacidadMax;
+    }
+
+    public void setTipoHabitacioCapacidadMax(int tipoHabitacioCapacidadMax) {
+        this.tipoHabitacioCapacidadMax = tipoHabitacioCapacidadMax;
+    }
+
+    public double getTipoHabitacionPrecio() {
+        return tipoHabitacionPrecio;
+    }
+
+    public void setTipoHabitacionPrecio(double tipoHabitacionPrecio) {
+        this.tipoHabitacionPrecio = tipoHabitacionPrecio;
+    }
+
 }

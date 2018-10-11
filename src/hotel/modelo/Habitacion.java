@@ -4,34 +4,27 @@ public class Habitacion {
 
     private int habitacionId;
 
-    private int habitacioCapacidadMax;
-
-    private int habitacionCantidadCamas;
+    private int habitacionCantidadDeCamas;
 
     private boolean habitacionEstado;
-
-    private double habitacionPrecio;
 
     private TipoHabitacion tipoHabitacionId;
 
     public Habitacion() {
     }
 
-    public Habitacion(int habitacionId, int habitacioCapacidadMax, int habitacionCantidadCamas, boolean habitacionEstado, double habitacionPrecio, TipoHabitacion tipoHabitacionId) {
+    public Habitacion(int habitacionId, int habitacionCantidadDeCamas, boolean habitacionEstado, TipoHabitacion tipoHabitacionId) {
         this.habitacionId = habitacionId;
-        this.habitacioCapacidadMax = habitacioCapacidadMax;
-        this.habitacionCantidadCamas = habitacionCantidadCamas;
+        this.habitacionCantidadDeCamas = habitacionCantidadDeCamas;
         this.habitacionEstado = habitacionEstado;
-        this.habitacionPrecio = habitacionPrecio;
         this.tipoHabitacionId = tipoHabitacionId;
     }
 
-    public Habitacion(int habitacioCapacidadMax, int habitacionCantidadCamas, boolean habitacionEstado, double habitacionPrecio, TipoHabitacion tipoHabitacionId) {
-        this.habitacioCapacidadMax = habitacioCapacidadMax;
-        this.habitacionCantidadCamas = habitacionCantidadCamas;
+    public Habitacion(int habitacionCantidadDeCamas, boolean habitacionEstado, TipoHabitacion tipoHabitacionId) {
+        this.habitacionCantidadDeCamas = habitacionCantidadDeCamas;
         this.habitacionEstado = habitacionEstado;
-        this.habitacionPrecio = habitacionPrecio;
         this.tipoHabitacionId = tipoHabitacionId;
+
     }
 
     public int getHabitacionId() {
@@ -42,20 +35,12 @@ public class Habitacion {
         this.habitacionId = habitacionId;
     }
 
-    public int getHabitacioCapacidadMax() {
-        return habitacioCapacidadMax;
+    public int getHabitacionCantidadDeCamas() {
+        return habitacionCantidadDeCamas;
     }
 
-    public void setHabitacioCapacidadMax(int habitacioCapacidadMax) {
-        this.habitacioCapacidadMax = habitacioCapacidadMax;
-    }
-
-    public int getHabitacionCantidadCamas() {
-        return habitacionCantidadCamas;
-    }
-
-    public void setHabitacionCantidadCamas(int habitacionCantidadCamas) {
-        this.habitacionCantidadCamas = habitacionCantidadCamas;
+    public void setHabitacionCantidadDeCamas(int habitacionCantidadDeCamas) {
+        this.habitacionCantidadDeCamas = habitacionCantidadDeCamas;
     }
 
     public boolean isHabitacionEstado() {
@@ -66,14 +51,6 @@ public class Habitacion {
         this.habitacionEstado = habitacionEstado;
     }
 
-    public double getHabitacionPrecio() {
-        return habitacionPrecio;
-    }
-
-    public void setHabitacionPrecio(double habitacionPrecio) {
-        this.habitacionPrecio = habitacionPrecio;
-    }
-
     public TipoHabitacion getTipoHabitacionId() {
         return tipoHabitacionId;
     }
@@ -81,5 +58,5 @@ public class Habitacion {
     public void setTipoHabitacionId(TipoHabitacion tipoHabitacionId) {
         this.tipoHabitacionId = tipoHabitacionId;
     }
-    
+
 }

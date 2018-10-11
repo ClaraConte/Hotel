@@ -6,9 +6,6 @@
 package hotel.vistas;
 
 import hotel.modelo.Conexion;
-import hotel.modelo.HabitacionData;
-import hotel.modelo.Huesped;
-import hotel.modelo.HuespedData;
 
 /**
  *
@@ -21,7 +18,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH); // Maximiza Ventana
     }
 
     /**
@@ -184,39 +181,6 @@ public class Inicio extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
-        Conexion conexion;
-
-        HabitacionData habitacionData;
-
-        Huesped huesped;
-        Huesped huespedEditar;
-        HuespedData huespedDataEditar;
-        HuespedData huespedDataListar;
-
-        try {
-            conexion = new Conexion();
-
-            habitacionData = new HabitacionData(conexion);
-            huespedDataEditar = new HuespedData(conexion);
-            huespedDataListar = new HuespedData(conexion);
-
-            // Test para editar huesped
-            // huesped = new Huesped(30178718, "Claraconte", "La punta", "clara@clara.com", "2616266910");
-            // huespedDataEditar.editarHuesped(huesped);
-
-            // Test para ver listado de huéspedes
-            huespedDataListar.obtenerHuespedes().forEach(huespedes -> {
-                System.out.println("Nombre : " + huespedes.getHuespedNombre() + "  DNI : " + huespedes.getHuespedDni());
-            });
-
-            // Test para mostrar todos los datos de la tabla de habitaciones
-            //habitacionData.obtenerHabitaciones().forEach(habitacion -> {
-            //   System.out.println("id habitacion: " + habitacion.getHabitacionId());
-            //});
-
-        } catch (Exception e) {
-            System.out.println("Error al instanciar la clase conexionmm: " + e.getMessage());
-        }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

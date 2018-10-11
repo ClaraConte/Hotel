@@ -95,7 +95,7 @@ public class HuespedData {
 
             while (resultSet.next()) {
                 huesped = new Huesped();
-                //  huesped.setHuespedId(resultSet.getInt("huespedId"));
+                huesped.setHuespedId(resultSet.getInt("huespedId"));
                 huesped.setHuespedDni(resultSet.getInt("huespedDni"));
                 huesped.setHuespedNombre(resultSet.getString("huespedNombre"));
                 huesped.setHuespedDomicilio(resultSet.getString("huespedDomicilio"));

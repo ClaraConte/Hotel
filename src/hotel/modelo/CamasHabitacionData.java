@@ -5,10 +5,24 @@
  */
 package hotel.modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author clara
  */
 public class CamasHabitacionData {
-    
+        private Connection connection = null;
+
+    public CamasHabitacionData(Conexion conexion) {
+        try {
+            connection = conexion.getConexion();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener la conexion");
+        }
+    }
 }
