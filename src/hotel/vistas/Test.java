@@ -5,11 +5,14 @@
  */
 package hotel.vistas;
 
+import hotel.modelo.CamasHabitacion;
+import hotel.modelo.CamasHabitacionData;
 import hotel.modelo.Conexion;
 import hotel.modelo.Habitacion;
 import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
+import hotel.modelo.TipoCama;
 import hotel.modelo.TipoHabitacion;
 
 /**
@@ -102,8 +105,8 @@ public class Test {
             **/
             
             // Listar por Tipo Habitacion --
-            /*
-            HabitacionData habitacionData;
+            
+           /* HabitacionData habitacionData;
             habitacionData = new HabitacionData(conexion);
             Habitacion habitacion;
             habitacion = new Habitacion();
@@ -114,19 +117,20 @@ public class Test {
                         + "  Habitación Tipo Id : " + habitacionPorTipo.getTipoHabitacionId().getTipoHabitacionId()
                 );
             });
-            **/
+          /*  
 
             // Guardar --
-            /*
-            HabitacionData habitacionData;
+           
+            /*HabitacionData habitacionData;
             habitacionData = new HabitacionData(conexion);
             TipoHabitacion tipoHabitacion;
             tipoHabitacion = new TipoHabitacion();
             tipoHabitacion.setTipoHabitacionId(2);
             Habitacion habitacionAGuardar;
-            habitacionAGuardar = new Habitacion(3,true,tipoHabitacion);
+            habitacionAGuardar = new Habitacion(8,true,tipoHabitacion);
             habitacionData.guardarHabitacion(habitacionAGuardar);
-            **/
+      */
+            
 
             // Editar --
             /*
@@ -141,6 +145,38 @@ public class Test {
             habitacionAEditar = new Habitacion(idEditar, 5, true, tipoHabitacion);
             habitacionData.editarHabitacion(habitacionAEditar);
             */
+            
+             /*************  TEST CAMAS_HABITACIONES  ************/
+            
+           //la habitacion debe guardarse en la tabla habitacion antes de guardar en camasHabitacion
+          
+         /* CamasHabitacion  camasHabitacion;
+          CamasHabitacionData  camasHabitacionData;
+          camasHabitacionData = new CamasHabitacionData(conexion);
+       
+         TipoCama tipoCama1 = new TipoCama(3, "doble");
+         camasHabitacionData.guardarCamasHabitacion (habitacionAGuardar ,tipoCama1);
+         System.out.println("La habitacion " + habitacionAGuardar.getHabitacionId() + " tiene una cama tipo " + tipoCama1.getTipoCamaNombre() );
+        
+        */
+         
+        CamasHabitacionData camasHabitacionData;
+            camasHabitacionData = new CamasHabitacionData(conexion);
+           // TipoHabitacion tipoHabitacion;
+           // tipoHabitacion = new TipoHabitacion();
+            //tipoHabitacion.setTipoHabitacionId(3);
+           // CamasHabitacion camasHabitacion;
+            //Habitacion habitacion;
+            //habitacion = new Habitacion(5,false,tipoHabitacion);
+            //TipoCama tipoCama;
+            //tipoCama = new TipoCama(3, "simple");
+            
+           int tipoCamaId = 2;
+            camasHabitacionData.obtenerCamasporHabitacion(tipoCamaId).forEach(camasPorHabitacion -> {
+                System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
+                   + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId()
+             + " Habitacion id " + camasPorHabitacion.getHabitacionId().getHabitacionId());
+            });
 
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());

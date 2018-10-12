@@ -27,6 +27,10 @@ public class Habitacion {
 
     }
 
+    public Habitacion(int i, int i0, int i1, boolean b, int i2, TipoHabitacion tipoHabitacion1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getHabitacionId() {
         return habitacionId;
     }
