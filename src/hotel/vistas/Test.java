@@ -26,31 +26,6 @@ public class Test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-
-        Conexion connection;
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        /* Create and display the form */
         Conexion conexion;
 
         try {
@@ -91,14 +66,21 @@ public class Test {
             /**
              * *********** TEST CAMAS_HABITACIONES  ***********
              */
-            //la habitacion debe guardarse en la tabla habitacion antes de guardar en camasHabitacion
+            // la habitacion debe guardarse en la tabla habitacion antes de guardar en camasHabitacion
             testCase.testCamasHabitacionGuardar();
             
-            //Listar Camas de habitacion por Tipo
+            // Listar Camas de habitacion por Tipo
             testCase.testCamasHabitacionListarPorTipo();
             
-            //Listar Camas de habitacion por ID habitación
+            // Listar Camas de habitacion por ID habitación
             testCase.testObtenerCamasPorHabitacionId();
+            
+            /**
+             * *********** TEST TIPOS DE CAMAS  ***********
+             */
+            
+            // Buscar camas por tipo
+            testCase.testBuscarTipoCamaPorId();
  
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
