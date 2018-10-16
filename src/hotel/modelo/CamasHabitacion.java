@@ -45,5 +45,5 @@ public class CamasHabitacion {
     public void setTipoCamaId(TipoCama tipoCamaId) {
         this.tipoCamaId = tipoCamaId;
     }
-    
+
 }

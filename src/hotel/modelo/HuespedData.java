@@ -111,6 +111,25 @@ public class HuespedData {
 
         return huesped;
     }
+        public boolean isHuespedDni(int huespedDni) {
+        Huesped huesped = null;
+        boolean data = false;
+        try {
+
+            String sql = "SELECT * FROM huesped WHERE huespedDni = ?;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+
+            statement.setInt(1, huespedDni);
+            ResultSet resultSet = statement.executeQuery();
+
+            data = resultSet.first();
+            statement.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error al mostrar huesped por ID: " + ex.getMessage());
+        }
+        return data;
+    }
 
     public void borrarHuesped(int huespedDni) {
         try {

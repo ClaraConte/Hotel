@@ -66,10 +66,11 @@ public class HabitacionData {
             ResultSet resultSet = statement.executeQuery();
             Habitacion habitacion;
             TipoHabitacion tipoHabitacion;
-            tipoHabitacion = new TipoHabitacion();
 
             while (resultSet.next()) {
                 habitacion = new Habitacion();
+                tipoHabitacion = new TipoHabitacion();
+
                 habitacion.setHabitacionId(resultSet.getInt("habitacionId"));
                 habitacion.setHabitacionCantidadDeCamas(resultSet.getInt("habitacionCantidadDeCamas"));
                 habitacion.setHabitacionEstado(resultSet.getBoolean("habitacionEstado"));
