@@ -74,8 +74,8 @@ public class CamasHabitacionData {
                 camasHabitacion.setCamasHabitacionId(resultSet.getInt("camasHabitacionId"));
                 habitacion.setHabitacionId(resultSet.getInt("habitacionId"));
                 camasHabitacion.setHabitacionId(habitacion);
-               tipoCama.setTipoCamaId(resultSet.getInt("tipoCamaId"));
-               camasHabitacion.setTipoCamaId(tipoCama);
+                tipoCama.setTipoCamaId(resultSet.getInt("tipoCamaId"));
+                camasHabitacion.setTipoCamaId(tipoCama);
                
                 camasEnHabitacion.add(camasHabitacion);
             }      

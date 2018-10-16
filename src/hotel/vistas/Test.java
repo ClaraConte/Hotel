@@ -13,6 +13,7 @@ import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
 import hotel.modelo.TipoCama;
+import hotel.modelo.TipoCamaData;
 import hotel.modelo.TipoHabitacion;
 
 /**
@@ -55,83 +56,6 @@ public class Test {
         try {
             conexion = new Conexion();
 
-            /************* TEST HUESPEDES  ************/
-
-            // Editar --
-            /*
-            Huesped huesped;
-            Huesped huespedEditar;
-            HuespedData huespedData;
-            huespedData = new HuespedData(conexion);
-            int DNI = 3017871;
-            huesped = new Huesped(DNI, "Claraconte", "La punta", "clara@clara.com", "2616266910");
-            huespedData.editarHuesped(huesped);
-            **/
-
-            // Listar huéspedes --
-            /*
-            HuespedData huespedData;
-            huespedData = new HuespedData(conexion);
-            huespedData.obtenerHuespedes().forEach(huespedes -> {
-                System.out.println("Nombre : " + huespedes.getHuespedNombre() + "  DNI : " + huespedes.getHuespedDni());
-            });
-            **/
-
-            /*************  TEST HABITACIONES  ************/
-            
-            // Listar habitaciones --
-            /*
-            HabitacionData habitacionData;
-            habitacionData = new HabitacionData(conexion);
-            Habitacion habitacion;
-            habitacion = new Habitacion();
-            habitacionData.obtenerHabitaciones().forEach(habitaciones -> {
-               System.out.println("id habitacion: " + habitaciones.getHabitacionId() 
-               + " Cantidad de camas: " + habitaciones.getHabitacionCantidadDeCamas());
-            });
-            **/
-            
-            // Listar por ID --
-            /*
-            HabitacionData habitacionData;
-            habitacionData = new HabitacionData(conexion);
-            Habitacion habitacion;
-            habitacion = new Habitacion();
-            int habitacionId = 5;
-            habitacion = habitacionData.buscarHabitacion(habitacionId);
-            System.out.println("Habitación Número: " + habitacion.getHabitacionId()
-            + "  Habitación Tipo Id : " + habitacion.getTipoHabitacionId().getTipoHabitacionId()
-            );
-            **/
-            
-            // Listar por Tipo Habitacion --
-            
-           /* HabitacionData habitacionData;
-            habitacionData = new HabitacionData(conexion);
-            Habitacion habitacion;
-            habitacion = new Habitacion();
-            int tipoHabitacionId = 2;
-            habitacionData.obtenerHabitacionesPorTipo(tipoHabitacionId).forEach(habitacionPorTipo -> {
-                System.out.println("Habitación Número: " + habitacionPorTipo.getHabitacionId()
-                        + "  Habitación precio : " + habitacionPorTipo.getTipoHabitacionId().getTipoHabitacionNombre()
-                        + "  Habitación Tipo Id : " + habitacionPorTipo.getTipoHabitacionId().getTipoHabitacionId()
-                );
-            });
-          /*  
-
-            // Guardar --
-           
-            /*HabitacionData habitacionData;
-            habitacionData = new HabitacionData(conexion);
-            TipoHabitacion tipoHabitacion;
-            tipoHabitacion = new TipoHabitacion();
-            tipoHabitacion.setTipoHabitacionId(2);
-            Habitacion habitacionAGuardar;
-            habitacionAGuardar = new Habitacion(8,true,tipoHabitacion);
-            habitacionData.guardarHabitacion(habitacionAGuardar);
-      */
-            
-
             // Editar --
             /*
             int idEditar = 8;
@@ -140,48 +64,53 @@ public class Test {
             TipoHabitacion tipoHabitacion;
             tipoHabitacion = new TipoHabitacion();
             tipoHabitacion.setTipoHabitacionId(3);
-
             Habitacion habitacionAEditar;
             habitacionAEditar = new Habitacion(idEditar, 5, true, tipoHabitacion);
             habitacionData.editarHabitacion(habitacionAEditar);
-            */
-            
-             /*************  TEST CAMAS_HABITACIONES  ************/
-            
-           //la habitacion debe guardarse en la tabla habitacion antes de guardar en camasHabitacion
-          
-         /* CamasHabitacion  camasHabitacion;
-          CamasHabitacionData  camasHabitacionData;
-          camasHabitacionData = new CamasHabitacionData(conexion);
-       
-         TipoCama tipoCama1 = new TipoCama(3, "doble");
-         camasHabitacionData.guardarCamasHabitacion (habitacionAGuardar ,tipoCama1);
-         System.out.println("La habitacion " + habitacionAGuardar.getHabitacionId() + " tiene una cama tipo " + tipoCama1.getTipoCamaNombre() );
-        
-        */
-         
-        CamasHabitacionData camasHabitacionData;
+             */
+            /*************  TEST CAMAS_HABITACIONES  ************/
+            //la habitacion debe guardarse en la tabla habitacion antes de guardar en camasHabitacion
+            /* CamasHabitacion  camasHabitacion;
+            CamasHabitacionData  camasHabitacionData;
             camasHabitacionData = new CamasHabitacionData(conexion);
-           // TipoHabitacion tipoHabitacion;
-           // tipoHabitacion = new TipoHabitacion();
+            TipoCama tipoCama1 = new TipoCama(3, "doble");
+            camasHabitacionData.guardarCamasHabitacion (habitacionAGuardar ,tipoCama1);
+            System.out.println("La habitacion " + habitacionAGuardar.getHabitacionId() + " tiene una cama tipo " + tipoCama1.getTipoCamaNombre() );
+             */
+            
+            
+            //OBTENER CAMAS POR HABITACION
+            
+            /* CamasHabitacionData camasHabitacionData;
+            camasHabitacionData = new CamasHabitacionData(conexion);
+            // TipoHabitacion tipoHabitacion;
+            //tipoHabitacion = new TipoHabitacion();
             //tipoHabitacion.setTipoHabitacionId(3);
-           // CamasHabitacion camasHabitacion;
-            //Habitacion habitacion;
-            //habitacion = new Habitacion(5,false,tipoHabitacion);
+            // CamasHabitacion camasHabitacion;
+            // Habitacion habitacion;
+            // habitacion = new Habitacion(5,false,tipoHabitacion);
             //TipoCama tipoCama;
             //tipoCama = new TipoCama(3, "simple");
-            
-           int tipoCamaId = 2;
+            int tipoCamaId = 3;
             camasHabitacionData.obtenerCamasporHabitacion(tipoCamaId).forEach(camasPorHabitacion -> {
-                System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
-                   + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId()
-             + " Habitacion id " + camasPorHabitacion.getHabitacionId().getHabitacionId());
+            System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
+            + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId()
+            + " Habitacion id: " + camasPorHabitacion.getHabitacionId().getHabitacionId());
             });
-
+             */
+            
+             /*************  TEST CAMAS_HABITACIONES  ************/
+             
+            //consultar tipo de cama por Id
+        /* TipoCamaData tipoCamaData;
+         tipoCamaData = new TipoCamaData(conexion);
+         int tipoCamaId = 1;
+         
+         System.out.println("El tipo de cama consultada es: " +  tipoCamaData.buscarTipoCamaPorId(tipoCamaId).getTipoCamaNombre());
+       */
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
         }
-
     }
 
 }
