@@ -13,6 +13,7 @@ import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
 import hotel.modelo.TipoCama;
+import hotel.modelo.TipoCamaData;
 import hotel.modelo.TipoHabitacion;
 
 /**
@@ -102,7 +103,6 @@ public class Test {
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
         }
-
     }
 
 }
