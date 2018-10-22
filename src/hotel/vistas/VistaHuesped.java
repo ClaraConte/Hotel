@@ -240,7 +240,11 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     private void huespedBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBuscarActionPerformed
 
         // Búsca un huesped por DNI
-        // Falta validar si el campo DNI está vacio
+        if (huespedDni.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, " Dni no puede estar vacio ");
+        } else if (!validarCampoNumEntero(huespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");   
+        } else {
         int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
         Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
 
@@ -255,6 +259,7 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_huespedBuscarActionPerformed
+    }                                             
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
 

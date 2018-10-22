@@ -163,7 +163,7 @@ public class TestCase {
         CamasHabitacionData camasHabitacionData;
         camasHabitacionData = new CamasHabitacionData(conexion);
             
-        int tipoCamaId = 2;
+        int tipoCamaId = 3;
          System.out.println("// Listar Camas de habitación --");
          camasHabitacionData.obtenerCamasporHabitacion(tipoCamaId).forEach(camasPorHabitacion -> {
              System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
