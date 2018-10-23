@@ -263,7 +263,9 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
 
-       
+       if (!validarCampoNumEntero(huespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");   
+        } else{
         int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
         Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
 
@@ -278,34 +280,46 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");  
         }
         else if (resp != 2){ 
-        JOptionPane.showMessageDialog(huespedBorrar, "Accion cancelada");     
+        JOptionPane.showMessageDialog(huespedBorrar, "Accion cancelada"); 
+        vaciarCampos();
         }
     }//GEN-LAST:event_huespedBorrarActionPerformed
     else {
             JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
         }
-    }    
+    }  
+     }  
     private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
-
+if (!validarCampoNumEntero(huespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");   
+        } else{
         int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
         Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
-
         if (huesped != null) {
-
-            huesped.setHuespedNombre(huespedNombre.getText());
-            huesped.setHuespedDomicilio(huespedDomicilio.getText());
-            huesped.setHuespedEmail(huespedEmail.getText());
-            huesped.setHuespedCelular(huespedCelular.getText());
-
-            huespedData.editarHuesped(huesped);
+         
+         int resp =  JOptionPane.showConfirmDialog(null, "¿Esta seguro que quiere guardar los cambios?", "Alerta!", JOptionPane.YES_NO_OPTION);
+         if(resp != 1){
+         huesped.setHuespedNombre(huespedNombre.getText());
+         huesped.setHuespedDomicilio(huespedDomicilio.getText());
+         huesped.setHuespedEmail(huespedEmail.getText());
+         huesped.setHuespedCelular(huespedCelular.getText());
+         
+          huespedData.editarHuesped(huesped);
 
             JOptionPane.showMessageDialog(huespedBuscar, " Datos editados! ");
-
-        } else {
+        }else if(resp != 2){
+           JOptionPane.showMessageDialog(huespedBorrar, "No se realizaron cambios"); 
+        vaciarCampos(); 
+        }
+        }else {
             JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
-        } // TODO add your handling code here:
+        }
+       
+
+         // TODO add your handling code here:
     }//GEN-LAST:event_huespedEditarActionPerformed
 
+    }     
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
         vaciarCampos();
     }//GEN-LAST:event_huespedLimpiarActionPerformed
