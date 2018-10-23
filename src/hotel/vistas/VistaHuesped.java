@@ -263,14 +263,28 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
 
-        int Dni = Integer.parseInt(huespedDni.getText());
+       
+        int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
+        Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
+
+        if (huesped != null) {
+       int resp =  JOptionPane.showConfirmDialog(null, "¿Esta seguro que quiere borrar a el huesped?", "Alerta!", JOptionPane.YES_NO_OPTION);
+        if(resp != 1){
+          int Dni = Integer.parseInt(huespedDni.getText());
         huespedData.borrarHuesped(Dni);
 
         vaciarCampos();
 
-        JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");
+        JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");  
+        }
+        else if (resp != 2){ 
+        JOptionPane.showMessageDialog(huespedBorrar, "Accion cancelada");     
+        }
     }//GEN-LAST:event_huespedBorrarActionPerformed
-
+    else {
+            JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
+        }
+    }    
     private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
 
         int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
