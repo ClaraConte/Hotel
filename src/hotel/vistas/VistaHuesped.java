@@ -245,53 +245,84 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     private void huespedBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBuscarActionPerformed
 
         // Búsca un huesped por DNI
-        // Falta validar si el campo DNI está vacio
-        int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
-        Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
-
-        if (huesped != null) {
-            huespedNombre.setText(huesped.getHuespedNombre());
-            huespedDomicilio.setText(huesped.getHuespedDomicilio());
-            huespedEmail.setText(huesped.getHuespedEmail());
-            huespedCelular.setText(huesped.getHuespedCelular());
-
+        if (huespedDni.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, " Dni no puede estar vacio ");
+        } else if (!validarCampoNumEntero(huespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");
         } else {
-            JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
-        }
+            int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
+            Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
+
+            if (huesped != null) {
+                huespedNombre.setText(huesped.getHuespedNombre());
+                huespedDomicilio.setText(huesped.getHuespedDomicilio());
+                huespedEmail.setText(huesped.getHuespedEmail());
+                huespedCelular.setText(huesped.getHuespedCelular());
+
+            } else {
+                JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
+            }
 
     }//GEN-LAST:event_huespedBuscarActionPerformed
+    }
 
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
 
-        int Dni = Integer.parseInt(huespedDni.getText());
-        huespedData.borrarHuesped(Dni);
-
-        vaciarCampos();
-
-        JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");
-    }//GEN-LAST:event_huespedBorrarActionPerformed
-
-    private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
-
-        int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
-        Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
-
-        if (huesped != null) {
-
-            huesped.setHuespedNombre(huespedNombre.getText());
-            huesped.setHuespedDomicilio(huespedDomicilio.getText());
-            huesped.setHuespedEmail(huespedEmail.getText());
-            huesped.setHuespedCelular(huespedCelular.getText());
-
-            huespedData.editarHuesped(huesped);
-
-            JOptionPane.showMessageDialog(huespedBuscar, " Datos editados! ");
-
+        if (!validarCampoNumEntero(huespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");
         } else {
-            JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
-        } // TODO add your handling code here:
+            int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
+            Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
+
+            if (huesped != null) {
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que quiere borrar a el huesped?", "Alerta!", JOptionPane.YES_NO_OPTION);
+                if (resp != 1) {
+                    int Dni = Integer.parseInt(huespedDni.getText());
+                    huespedData.borrarHuesped(Dni);
+
+                    vaciarCampos();
+
+                    JOptionPane.showMessageDialog(huespedBorrar, "Huesped borrado");
+                } else if (resp != 2) {
+                    JOptionPane.showMessageDialog(huespedBorrar, "Accion cancelada");
+                    vaciarCampos();
+                }
+    }//GEN-LAST:event_huespedBorrarActionPerformed
+    else {
+                JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
+            }
+        }
+    }
+    private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
+        if (!validarCampoNumEntero(huespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");
+        } else {
+            int buscarHuespedDni = Integer.parseInt(huespedDni.getText());
+            Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
+            if (huesped != null) {
+
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que quiere guardar los cambios?", "Alerta!", JOptionPane.YES_NO_OPTION);
+                if (resp != 1) {
+                    huesped.setHuespedNombre(huespedNombre.getText());
+                    huesped.setHuespedDomicilio(huespedDomicilio.getText());
+                    huesped.setHuespedEmail(huespedEmail.getText());
+                    huesped.setHuespedCelular(huespedCelular.getText());
+
+                    huespedData.editarHuesped(huesped);
+
+                    JOptionPane.showMessageDialog(huespedBuscar, " Datos editados! ");
+                } else if (resp != 2) {
+                    JOptionPane.showMessageDialog(huespedBorrar, "No se realizaron cambios");
+                    vaciarCampos();
+                }
+            } else {
+                JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
+            }
+
+            // TODO add your handling code here:
     }//GEN-LAST:event_huespedEditarActionPerformed
 
+    }
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
         vaciarCampos();
     }//GEN-LAST:event_huespedLimpiarActionPerformed

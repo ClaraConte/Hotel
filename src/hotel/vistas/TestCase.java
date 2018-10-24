@@ -60,8 +60,8 @@ public class TestCase {
         });
         System.out.println("***********************************");
     }
-    
-    public void testIsHuespedDni(){
+
+    public void testIsHuespedDni() {
         HuespedData huespedData;
         huespedData = new HuespedData(conexion);
         System.out.println("// Existe el DNI de Huésped --");
@@ -69,12 +69,13 @@ public class TestCase {
         System.out.println("Existe el huesped : " + huespedData.isHuespedDni(dni));
         System.out.println("***********************************");
     }
+
     public void testHabitacionesListar() {
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
         Habitacion habitacion;
         habitacion = new Habitacion();
-        
+
         System.out.println("// Listar habitaciones --");
         habitacionData.obtenerHabitaciones().forEach(habitaciones -> {
             System.out.println("id habitacion: " + habitaciones.getHabitacionId()
@@ -82,23 +83,24 @@ public class TestCase {
         });
         System.out.println("***********************************");
     }
-    
+
     public void testHabitacionesListarPorId() {
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
         Habitacion habitacion;
         habitacion = new Habitacion();
         int habitacionId = 5;
-        
+
         System.out.println("// Listar por ID --");
         habitacion = habitacionData.buscarHabitacion(habitacionId);
-            System.out.println("Habitación Número: " + habitacion.getHabitacionId()
-            + "  Habitación Tipo Id : " + habitacion.getTipoHabitacionId().getTipoHabitacionId()
-            );
+        System.out.println("Habitación Número: " + habitacion.getHabitacionId()
+                + "  Habitación Tipo Id : " + habitacion.getTipoHabitacionId().getTipoHabitacionId()
+        );
         System.out.println("***********************************");
     }
-    public void testHabitacionesListarPorTipo(){
-    
+
+    public void testHabitacionesListarPorTipo() {
+
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
         Habitacion habitacion;
@@ -114,7 +116,8 @@ public class TestCase {
         System.out.println("***********************************");
 
     }
-    public void testHabitacionesGuardar(){
+
+    public void testHabitacionesGuardar() {
 
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
@@ -123,12 +126,12 @@ public class TestCase {
         tipoHabitacion.setTipoHabitacionId(2);
         Habitacion habitacionAGuardar;
         System.out.println("// Guardar habitación --");
-        habitacionAGuardar = new Habitacion(8,true,tipoHabitacion);
+        habitacionAGuardar = new Habitacion(8, true, tipoHabitacion);
         habitacionData.guardarHabitacion(habitacionAGuardar);
         System.out.println("***********************************");
     }
-    
-    public void testHabitacionesEditar(){
+
+    public void testHabitacionesEditar() {
         int idEditar = 8;
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
@@ -142,61 +145,64 @@ public class TestCase {
         habitacionData.editarHabitacion(habitacionAEditar);
         System.out.println("***********************************");
     }
-    
-    public void testCamasHabitacionGuardar(){ 
-        CamasHabitacion  camasHabitacion;
-        CamasHabitacionData  camasHabitacionData;
+
+    public void testCamasHabitacionGuardar() {
+        CamasHabitacion camasHabitacion;
+        CamasHabitacionData camasHabitacionData;
         camasHabitacionData = new CamasHabitacionData(conexion);
         TipoHabitacion tipoHabitacion;
         tipoHabitacion = new TipoHabitacion();
         tipoHabitacion.setTipoHabitacionId(3);
         Habitacion habitacion;
-        habitacion = new Habitacion(5,false,tipoHabitacion);
+        habitacion = new Habitacion(5, false, tipoHabitacion);
         TipoCama tipoCama;
         tipoCama = new TipoCama(2, "simple");
         System.out.println("// Guardar Cama habitación --");
-        camasHabitacionData.guardarCamasHabitacion (habitacion ,tipoCama);
+        camasHabitacionData.guardarCamasHabitacion(habitacion, tipoCama);
         System.out.println("La habitacion " + habitacion.getHabitacionId() + " tiene una cama tipo " + tipoCama.getTipoCamaNombre());
         System.out.println("***********************************");
     }
-    public void testCamasHabitacionListarPorTipo(){
+
+    public void testCamasHabitacionListarPorTipo() {
         CamasHabitacionData camasHabitacionData;
         camasHabitacionData = new CamasHabitacionData(conexion);
-            
-        int tipoCamaId = 2;
-         System.out.println("// Listar Camas de habitación --");
-         camasHabitacionData.obtenerCamasporHabitacion(tipoCamaId).forEach(camasPorHabitacion -> {
-             System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
-                + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId()
-          + " Habitacion id " + camasPorHabitacion.getHabitacionId().getHabitacionId());
-         });
+
+        int tipoCamaId = 3;
+        System.out.println("// Listar Camas de habitación --");
+        camasHabitacionData.obtenerCamasporHabitacion(tipoCamaId).forEach(camasPorHabitacion -> {
+            System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
+                    + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId()
+                    + " Habitacion id " + camasPorHabitacion.getHabitacionId().getHabitacionId());
+        });
         System.out.println("***********************************");
     }
-    public void testObtenerCamasPorHabitacionId(){
+
+    public void testObtenerCamasPorHabitacionId() {
         CamasHabitacionData camasHabitacionData;
         camasHabitacionData = new CamasHabitacionData(conexion);
         int habitacionId = 3;
         System.out.println("// Listar Camas de habitación por ID de habitación --");
-  
-         camasHabitacionData.obtenerCamasPorHabitacionId(habitacionId).forEach(camasPorHabitacion -> {
-             System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
-                + " Habitacion id " + camasPorHabitacion.getHabitacionId().getHabitacionId()
-          + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId());
-         });
- 
+
+        camasHabitacionData.obtenerCamasPorHabitacionId(habitacionId).forEach(camasPorHabitacion -> {
+            System.out.println("Habitación Número: " + camasPorHabitacion.getCamasHabitacionId()
+                    + " Habitacion id " + camasPorHabitacion.getHabitacionId().getHabitacionId()
+                    + "  Habitación Tipo Cama : " + camasPorHabitacion.getTipoCamaId().getTipoCamaId());
+        });
+
         System.out.println("***********************************");
 
     }
-    public void testBuscarTipoCamaPorId(){
-    int tipoCamaId = 2;
-    TipoCamaData tipoCamaData;
-    tipoCamaData = new TipoCamaData(conexion);
-    TipoCama tipoCama;
-    tipoCama = new TipoCama();
-    tipoCama = tipoCamaData.buscarTipoCamaPorId(tipoCamaId);
-    System.out.println("// Listar tipos Camas de habitación por tipoCamaId --");
-    System.out.println("id: "+tipoCama.getTipoCamaId()+ " Nombre: "+tipoCama.getTipoCamaNombre());
-    System.out.println("***********************************");
+
+    public void testBuscarTipoCamaPorId() {
+        int tipoCamaId = 2;
+        TipoCamaData tipoCamaData;
+        tipoCamaData = new TipoCamaData(conexion);
+        TipoCama tipoCama;
+        tipoCama = new TipoCama();
+        tipoCama = tipoCamaData.buscarTipoCamaPorId(tipoCamaId);
+        System.out.println("// Listar tipos Camas de habitación por tipoCamaId --");
+        System.out.println("id: " + tipoCama.getTipoCamaId() + " Nombre: " + tipoCama.getTipoCamaNombre());
+        System.out.println("***********************************");
 
     }
 }
