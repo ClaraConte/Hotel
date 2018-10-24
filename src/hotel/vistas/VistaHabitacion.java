@@ -72,7 +72,7 @@ public class VistaHabitacion extends javax.swing.JInternalFrame {
         });
 
         habitacionTipo.setEditable(true);
-        habitacionTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Item 2", "Item 3", "Item 4" }));
+        habitacionTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Item 2", "Item 3", "Item 4" }));
 
         textHabitacionEstado.setText("ESTADO");
 

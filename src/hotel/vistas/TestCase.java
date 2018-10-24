@@ -100,7 +100,6 @@ public class TestCase {
     }
 
     public void testHabitacionesListarPorTipo() {
-
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
         Habitacion habitacion;
@@ -118,7 +117,6 @@ public class TestCase {
     }
 
     public void testHabitacionesGuardar() {
-
         HabitacionData habitacionData;
         habitacionData = new HabitacionData(conexion);
         TipoHabitacion tipoHabitacion;

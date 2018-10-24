@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package hotel.vistas;
-
 /**
  *
  * @author clara
@@ -75,7 +74,7 @@ public class VistaHuespedesLista extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         titleListaHuesped.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        titleListaHuesped.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/id-card.png"))); // NOI18N
+        titleListaHuesped.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/list-16.png"))); // NOI18N
         titleListaHuesped.setText("LISTADO DE HÚESPEDES");
 
         titleListaHuespedDni.setText("DNI");

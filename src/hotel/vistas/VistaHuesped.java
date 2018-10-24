@@ -226,6 +226,7 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
         } else if (huespedCelular.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, " Teléfono no puede estar vacio ");
         } else {
+
             int dni = Integer.parseInt(huespedDni.getText());
             String nombre = huespedNombre.getText();
             String domicilio = huespedDomicilio.getText();

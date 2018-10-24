@@ -9,6 +9,7 @@ package hotel.vistas;
  *
  * @author clara
  */
+
 public class VistaReservas extends javax.swing.JInternalFrame {
 
     /**
@@ -220,12 +221,13 @@ public class VistaReservas extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel11))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton5)
+                        .addComponent(jButton2)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel11)))
                 .addGap(86, 86, 86))
         );
 

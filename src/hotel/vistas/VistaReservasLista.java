@@ -90,7 +90,7 @@ public class VistaReservasLista extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/browser-5.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/list-5.png"))); // NOI18N
         jLabel2.setText("LISTADO DE RESERVAS");
 
         jLabel3.setText("Fecha checkOut ");

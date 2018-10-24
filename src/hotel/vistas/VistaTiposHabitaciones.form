@@ -30,43 +30,40 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="textTipoHabitacionDni" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                  <Component id="tipoHabitacionGuardar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textTipoHabitacionNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="textTipoHabitacionPersonas" min="-2" max="-2" attributes="0"/>
+                  <Component id="textTipoHabitacionPrecio" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textTipoHabitacionDni" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="tipoHabitacionGuardar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textTipoHabitacionNombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textTipoHabitacionPersonas" min="-2" max="-2" attributes="0"/>
-                          <Component id="textTipoHabitacionPrecio" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="tipoHabitacionPersonas" min="-2" pref="117" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="tipoHabitacionNombre" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="tipoHabitacionEditar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="tipoHabitacionLimpiar" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="102" max="32767" attributes="0"/>
-                                  <Component id="tipoHabitacionEliminar" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="tipoHabitacionPrecio" alignment="0" max="32767" attributes="0"/>
-                              <Component id="tipoHabitacionId" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="tipoHabitacionPersonas" min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                      <Component id="textTitleHabitaciones" min="-2" pref="355" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="tipoHabitacionNombre" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="tipoHabitacionEditar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="tipoHabitacionLimpiar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                          <Component id="tipoHabitacionEliminar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="tipoHabitacionPrecio" alignment="0" max="32767" attributes="0"/>
+                      <Component id="tipoHabitacionId" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="textTitleHabitaciones" min="-2" pref="355" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

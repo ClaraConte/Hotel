@@ -17,7 +17,7 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     private int width = 280;
-    private int height = 115;
+    private int height = 110;
     
     public Inicio() {
         initComponents();
