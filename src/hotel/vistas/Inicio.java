@@ -16,6 +16,9 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    private int width = 280;
+    private int height = 115;
+    
     public Inicio() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH); // Maximiza Ventana
@@ -30,17 +33,28 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem2 = new javax.swing.JMenuItem();
         escritorio = new javax.swing.JDesktopPane();
         menuPrincipal = new javax.swing.JMenuBar();
         submenuArchivo = new javax.swing.JMenu();
         itemSalir = new javax.swing.JMenuItem();
         submenuHuespedes = new javax.swing.JMenu();
         itemHuespedes = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem1 = new javax.swing.JMenuItem();
         submenuHabitaciones = new javax.swing.JMenu();
         itemHabitaciones = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        itemTiposHabitaciones = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        itemListadoHabitaciones = new javax.swing.JMenuItem();
         submenuReservas = new javax.swing.JMenu();
         itemReservas = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
         submenuConsultas = new javax.swing.JMenu();
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,14 +64,17 @@ public class Inicio extends javax.swing.JFrame {
 
         menuPrincipal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuPrincipal.setMaximumSize(new java.awt.Dimension(546, 32771));
-        menuPrincipal.setPreferredSize(new java.awt.Dimension(546, 25));
+        menuPrincipal.setPreferredSize(new java.awt.Dimension(546, 40));
+        menuPrincipal.setRequestFocusEnabled(false);
 
         submenuArchivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/folder-1.png"))); // NOI18N
         submenuArchivo.setText("Archivo");
+        submenuArchivo.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         itemSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/cancel.png"))); // NOI18N
         itemSalir.setText("Salir");
         itemSalir.setMaximumSize(new java.awt.Dimension(400, 100));
+        itemSalir.setPreferredSize(new java.awt.Dimension(97, 50));
         itemSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemSalirActionPerformed(evt);
@@ -69,49 +86,101 @@ public class Inicio extends javax.swing.JFrame {
 
         submenuHuespedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/user-menu.png"))); // NOI18N
         submenuHuespedes.setText("Huéspedes");
+        submenuHuespedes.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         itemHuespedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/id-card.png"))); // NOI18N
         itemHuespedes.setText("Formulario de huéspedes");
+        itemHuespedes.setPreferredSize(new java.awt.Dimension(242, 50));
         itemHuespedes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemHuespedesActionPerformed(evt);
             }
         });
         submenuHuespedes.add(itemHuespedes);
+        submenuHuespedes.add(jSeparator2);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/list-8.png"))); // NOI18N
+        jMenuItem1.setText("Listado de huéspedes");
+        jMenuItem1.setPreferredSize(new java.awt.Dimension(195, 50));
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        submenuHuespedes.add(jMenuItem1);
 
         menuPrincipal.add(submenuHuespedes);
 
         submenuHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/bank.png"))); // NOI18N
         submenuHabitaciones.setText("Habitaciones");
+        submenuHabitaciones.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         itemHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/calendar-29.png"))); // NOI18N
         itemHabitaciones.setText("Formulario de habitaciones");
+        itemHabitaciones.setPreferredSize(new java.awt.Dimension(255, 50));
         itemHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemHabitacionesActionPerformed(evt);
             }
         });
         submenuHabitaciones.add(itemHabitaciones);
+        submenuHabitaciones.add(jSeparator4);
+
+        itemTiposHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/hierarchical-structure.png"))); // NOI18N
+        itemTiposHabitaciones.setText("Tipos de habitaciones");
+        itemTiposHabitaciones.setPreferredSize(new java.awt.Dimension(314, 50));
+        itemTiposHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemTiposHabitacionesActionPerformed(evt);
+            }
+        });
+        submenuHabitaciones.add(itemTiposHabitaciones);
+        submenuHabitaciones.add(jSeparator1);
+
+        itemListadoHabitaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/list-8.png"))); // NOI18N
+        itemListadoHabitaciones.setText("Listado de habitaciones");
+        itemListadoHabitaciones.setPreferredSize(new java.awt.Dimension(228, 50));
+        itemListadoHabitaciones.setRolloverEnabled(true);
+        itemListadoHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemListadoHabitacionesActionPerformed(evt);
+            }
+        });
+        submenuHabitaciones.add(itemListadoHabitaciones);
 
         menuPrincipal.add(submenuHabitaciones);
 
         submenuReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/star.png"))); // NOI18N
         submenuReservas.setText("Reservas");
+        submenuReservas.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         itemReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/calendar-39.png"))); // NOI18N
         itemReservas.setText("Hacer una reserva");
         itemReservas.setActionCommand("Hacer reservas");
+        itemReservas.setPreferredSize(new java.awt.Dimension(190, 50));
         itemReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemReservasActionPerformed(evt);
             }
         });
         submenuReservas.add(itemReservas);
+        submenuReservas.add(jSeparator3);
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/list-5.png"))); // NOI18N
+        jMenuItem3.setText("Listado de reservas");
+        jMenuItem3.setPreferredSize(new java.awt.Dimension(178, 50));
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        submenuReservas.add(jMenuItem3);
 
         menuPrincipal.add(submenuReservas);
 
         submenuConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/analytics.png"))); // NOI18N
         submenuConsultas.setText("Consultas");
+        submenuConsultas.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         menuPrincipal.add(submenuConsultas);
 
         setJMenuBar(menuPrincipal);
@@ -124,14 +193,20 @@ public class Inicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHabitacionesActionPerformed
-        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaHabitacion formularioHabitacion = new VistaHabitacion();
+        formularioHabitacion.setVisible(true);
+        formularioHabitacion.setLocation(width, height);
+        escritorio.add(formularioHabitacion);
+        escritorio.moveToFront(formularioHabitacion);
     }//GEN-LAST:event_itemHabitacionesActionPerformed
 
     private void itemHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHuespedesActionPerformed
@@ -139,18 +214,62 @@ public class Inicio extends javax.swing.JFrame {
         escritorio.repaint();
         VistaHuesped formularioHuesped = new VistaHuesped();
         formularioHuesped.setVisible(true);
-        formularioHuesped.setLocation(250, 100);
+        formularioHuesped.setLocation(width, height);
         escritorio.add(formularioHuesped);
         escritorio.moveToFront(formularioHuesped);
     }//GEN-LAST:event_itemHuespedesActionPerformed
 
     private void itemReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReservasActionPerformed
-        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaReservas formularioReservas = new VistaReservas();
+        formularioReservas.setVisible(true);
+        formularioReservas.setLocation(width, height);
+        escritorio.add(formularioReservas);
+        escritorio.moveToFront(formularioReservas);
     }//GEN-LAST:event_itemReservasActionPerformed
 
     private void itemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_itemSalirActionPerformed
+
+    private void itemListadoHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemListadoHabitacionesActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaHabitacionesLista formularioHabitaciones = new VistaHabitacionesLista();
+        formularioHabitaciones.setVisible(true);
+        formularioHabitaciones.setLocation(width, height);
+        escritorio.add(formularioHabitaciones);
+        escritorio.moveToFront(formularioHabitaciones);
+    }//GEN-LAST:event_itemListadoHabitacionesActionPerformed
+
+    private void itemTiposHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemTiposHabitacionesActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaTiposHabitaciones formularioTipoHabitaciones = new VistaTiposHabitaciones();
+        formularioTipoHabitaciones.setVisible(true);
+        formularioTipoHabitaciones.setLocation(width, height);
+        escritorio.add(formularioTipoHabitaciones);
+        escritorio.moveToFront(formularioTipoHabitaciones);    }//GEN-LAST:event_itemTiposHabitacionesActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaHuespedesLista formularioHuespedesLista = new VistaHuespedesLista();
+        formularioHuespedesLista.setVisible(true);
+        formularioHuespedesLista.setLocation(width, height);
+        escritorio.add(formularioHuespedesLista);
+        escritorio.moveToFront(formularioHuespedesLista);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaReservasLista formularioReservasLista = new VistaReservasLista();
+        formularioReservasLista.setVisible(true);
+        formularioReservasLista.setLocation(width, height);
+        escritorio.add(formularioReservasLista);
+        escritorio.moveToFront(formularioReservasLista);    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,8 +313,17 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem itemHabitaciones;
     private javax.swing.JMenuItem itemHuespedes;
+    private javax.swing.JMenuItem itemListadoHabitaciones;
     private javax.swing.JMenuItem itemReservas;
     private javax.swing.JMenuItem itemSalir;
+    private javax.swing.JMenuItem itemTiposHabitaciones;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JMenuBar menuPrincipal;
     private javax.swing.JMenu submenuArchivo;
     private javax.swing.JMenu submenuConsultas;

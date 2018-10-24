@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/modelo/CamasHabitacionData.java</file>
             <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/modelo/HuespedData.java</file>
             <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/vistas/Inicio.java</file>
             <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/vistas/Test.java</file>
             <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/modelo/HabitacionData.java</file>
             <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/vistas/VistaHuesped.java</file>
             <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/vistas/TestCase.java</file>
+            <file>file:/Users/clara/NetBeansProjects/Hotel/src/hotel/modelo/TipoCamaData.java</file>
         </group>
     </open-files>
 </project-private>

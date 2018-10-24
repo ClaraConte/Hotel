@@ -87,6 +87,11 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
         textHuespedCelular.setText("CELULAR");
 
         huespedDni.setToolTipText("Campo Requerido");
+        huespedDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                huespedDniActionPerformed(evt);
+            }
+        });
 
         huespedNombre.setToolTipText("Campo Requerido"); // NOI18N
 
@@ -290,6 +295,10 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
         vaciarCampos();
     }//GEN-LAST:event_huespedLimpiarActionPerformed
+
+    private void huespedDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_huespedDniActionPerformed
 
     /**
      * Métodos Auxiliares *
