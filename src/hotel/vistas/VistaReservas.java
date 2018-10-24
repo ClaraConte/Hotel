@@ -9,7 +9,6 @@ package hotel.vistas;
  *
  * @author clara
  */
-
 public class VistaReservas extends javax.swing.JInternalFrame {
 
     /**

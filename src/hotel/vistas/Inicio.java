@@ -11,6 +11,7 @@ import hotel.modelo.Conexion;
  *
  * @author clara
  */
+
 public class Inicio extends javax.swing.JFrame {
 
     /**

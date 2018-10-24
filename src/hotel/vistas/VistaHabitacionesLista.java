@@ -9,6 +9,7 @@ package hotel.vistas;
  *
  * @author clara
  */
+
 public class VistaHabitacionesLista extends javax.swing.JInternalFrame {
 
     /**

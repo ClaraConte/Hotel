@@ -22,6 +22,7 @@ import javax.swing.border.Border;
  *
  * @author clara
  */
+
 public class VistaHuesped extends javax.swing.JInternalFrame {
 
     /**
@@ -319,8 +320,6 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(huespedBuscar, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
             }
-
-            // TODO add your handling code here:
     }//GEN-LAST:event_huespedEditarActionPerformed
 
     }

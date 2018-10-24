@@ -12,6 +12,7 @@ import javax.swing.JTextField;
  *
  * @author clara
  */
+
 public class VistaHabitacion extends javax.swing.JInternalFrame {
 
     /**

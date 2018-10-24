@@ -20,6 +20,7 @@ import hotel.modelo.TipoHabitacion;
  *
  * @author clara
  */
+
 public class Test {
 
     /**

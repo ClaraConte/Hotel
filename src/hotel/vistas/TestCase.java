@@ -24,6 +24,7 @@ import java.util.List;
  *
  * @author clara
  */
+
 public class TestCase {
 
     private Connection connection = null;
