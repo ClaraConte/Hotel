@@ -15,6 +15,7 @@ import hotel.modelo.HuespedData;
 import hotel.modelo.TipoCama;
 import hotel.modelo.TipoCamaData;
 import hotel.modelo.TipoHabitacion;
+import hotel.modelo.TipoHabitacionData;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -203,5 +204,18 @@ public class TestCase {
         System.out.println("id: " + tipoCama.getTipoCamaId() + " Nombre: " + tipoCama.getTipoCamaNombre());
         System.out.println("***********************************");
 
+    }
+   
+    public void testBuscarTipoHabitacionPorId(){
+        int tipoHabitacionId = 2;
+        TipoHabitacionData tipoHabitacionData;
+        tipoHabitacionData = new TipoHabitacionData(conexion);
+        TipoHabitacion tipoHabitacion = null;
+        TipoHabitacion TipoHabitacion = tipoHabitacion;
+        tipoHabitacion = new TipoHabitacion();
+        tipoHabitacion = tipoHabitacionData.buscarTipoHabitacionPorId(tipoHabitacionId);
+        System.out.println("// Listar tipos de habitacion por tipoHabitacionId --");
+        System.out.println("id: " + tipoHabitacion.getTipoHabitacionId() + "Nombre: "+ tipoHabitacion.getTipoHabitacionNombre());
+        System.out.println("***********************");
     }
 }
