@@ -82,6 +82,12 @@ public class Test {
             
             // Buscar camas por tipo
             testCase.testBuscarTipoCamaPorId();
+            
+            /**
+             *********TEST TIPO DE HABITACION *************
+             */
+            //Buscar tipo de habitacion por id
+            testCase.testBuscarTipoHabitacionPorId();
  
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());
