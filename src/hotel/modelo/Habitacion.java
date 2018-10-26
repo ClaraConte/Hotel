@@ -58,5 +58,9 @@ public class Habitacion {
     public void setTipoHabitacionId(TipoHabitacion tipoHabitacionId) {
         this.tipoHabitacionId = tipoHabitacionId;
     }
+    public String toString(){
+    
+        return "Num - "+habitacionId;
+    }
 
 }

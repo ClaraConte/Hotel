@@ -1,17 +1,16 @@
 package hotel.modelo;
 
-
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reservas {
 
     private int reservasId;
 
-    private Date reservasFechaCheckin;
+    private LocalDate reservasFechaCheckin;
 
-    private Date reservasfechaCheckout;
+    private LocalDate reservasfechaCheckout;
 
-    private Date reservasFechaCreacion;
+    private LocalDate reservasFechaCreacion;
 
     private int reservasDias;
 
@@ -26,7 +25,7 @@ public class Reservas {
     public Reservas() {
     }
 
-    public Reservas(int reservasId, Date reservasFechaCheckin, Date reservasfechaCheckout, Date reservasFechaCreacion, int reservasDias, double reservasMonto, boolean reservasEstado, Huesped huespedId, Habitacion habitacionId) {
+    public Reservas(int reservasId, LocalDate reservasFechaCheckin, LocalDate reservasfechaCheckout, LocalDate reservasFechaCreacion, int reservasDias, double reservasMonto, boolean reservasEstado, Huesped huespedId, Habitacion habitacionId) {
         this.reservasId = reservasId;
         this.reservasFechaCheckin = reservasFechaCheckin;
         this.reservasfechaCheckout = reservasfechaCheckout;
@@ -38,7 +37,8 @@ public class Reservas {
         this.habitacionId = habitacionId;
     }
 
-    public Reservas(Date reservasFechaCheckin, Date reservasfechaCheckout, Date reservasFechaCreacion, int reservasDias, double reservasMonto, boolean reservasEstado, Huesped huespedId, Habitacion habitacionId) {
+    public Reservas(LocalDate reservasFechaCheckin, LocalDate reservasfechaCheckout, LocalDate reservasFechaCreacion, int reservasDias, double reservasMonto, boolean reservasEstado, Huesped huespedId, Habitacion habitacionId) {
+        this.reservasId = -1;
         this.reservasFechaCheckin = reservasFechaCheckin;
         this.reservasfechaCheckout = reservasfechaCheckout;
         this.reservasFechaCreacion = reservasFechaCreacion;
@@ -57,27 +57,27 @@ public class Reservas {
         this.reservasId = reservasId;
     }
 
-    public Date getReservasFechaCheckin() {
+    public LocalDate getReservasFechaCheckin() {
         return reservasFechaCheckin;
     }
 
-    public void setReservasFechaCheckin(Date reservasFechaCheckin) {
+    public void setReservasFechaCheckin(LocalDate reservasFechaCheckin) {
         this.reservasFechaCheckin = reservasFechaCheckin;
     }
 
-    public Date getReservasfechaCheckout() {
+    public LocalDate getReservasfechaCheckout() {
         return reservasfechaCheckout;
     }
 
-    public void setReservasfechaCheckout(Date reservasfechaCheckout) {
+    public void setReservasfechaCheckout(LocalDate reservasfechaCheckout) {
         this.reservasfechaCheckout = reservasfechaCheckout;
     }
 
-    public Date getReservasFechaCreacion() {
+    public LocalDate getReservasFechaCreacion() {
         return reservasFechaCreacion;
     }
 
-    public void setReservasFechaCreacion(Date reservasFechaCreacion) {
+    public void setReservasFechaCreacion(LocalDate reservasFechaCreacion) {
         this.reservasFechaCreacion = reservasFechaCreacion;
     }
 

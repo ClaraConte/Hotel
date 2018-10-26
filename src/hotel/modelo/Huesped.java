@@ -85,5 +85,9 @@ public class Huesped {
     void add(Huesped huesped) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public String toString(){
+    
+        return  huespedNombre+" - "+huespedDni;
+    }
     
 }

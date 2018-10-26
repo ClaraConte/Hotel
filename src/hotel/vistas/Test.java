@@ -38,50 +38,56 @@ public class Test {
              * *********** TEST HUESPEDES  ***********
              */
             // Editar --
-            testCase.testHuespedEditar();
+            //testCase.testHuespedEditar();
 
             // Listar huéspedes --
-            testCase.testHuespedesListar();
+            //testCase.testHuespedesListar();
             
             // Is Huesped DNI
-            testCase.testIsHuespedDni();
+            //testCase.testIsHuespedDni();
 
             /**
              * *********** TEST HABITACIONES  ***********
              */
             // Listar habitaciones --
-            testCase.testHabitacionesListar();
+            //testCase.testHabitacionesListar();
 
             // Listar por ID --
-            testCase.testHabitacionesListarPorId();
+            //testCase.testHabitacionesListarPorId();
 
             // Listar por Tipo Habitacion --
-            testCase.testHabitacionesListarPorTipo();
+            //testCase.testHabitacionesListarPorTipo();
 
             // Guardar --
-            testCase.testHabitacionesGuardar();
+            //testCase.testHabitacionesGuardar();
 
             // Editar --
-            testCase.testHabitacionesEditar();
+            //testCase.testHabitacionesEditar();
 
             /**
              * *********** TEST CAMAS_HABITACIONES  ***********
              */
             // la habitacion debe guardarse en la tabla habitacion antes de guardar en camasHabitacion
-            testCase.testCamasHabitacionGuardar();
+            //testCase.testCamasHabitacionGuardar();
             
             // Listar Camas de habitacion por Tipo
-            testCase.testCamasHabitacionListarPorTipo();
+            //testCase.testCamasHabitacionListarPorTipo();
             
             // Listar Camas de habitacion por ID habitación
-            testCase.testObtenerCamasPorHabitacionId();
+            //testCase.testObtenerCamasPorHabitacionId();
             
             /**
              * *********** TEST TIPOS DE CAMAS  ***********
              */
             
             // Buscar camas por tipo
-            testCase.testBuscarTipoCamaPorId();
+            //testCase.testBuscarTipoCamaPorId();
+            
+            /**
+             * *********** TEST RESERVAS  ***********
+             */
+            // Guardar Reserva
+            testCase.testReservaGuardar();
  
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());

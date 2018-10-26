@@ -12,13 +12,19 @@ import hotel.modelo.Habitacion;
 import hotel.modelo.HabitacionData;
 import hotel.modelo.Huesped;
 import hotel.modelo.HuespedData;
+import hotel.modelo.Reservas;
+import hotel.modelo.ReservasData;
 import hotel.modelo.TipoCama;
 import hotel.modelo.TipoCamaData;
 import hotel.modelo.TipoHabitacion;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.temporal.ChronoUnit;
 
 /**
  *
@@ -202,6 +208,34 @@ public class TestCase {
         System.out.println("// Listar tipos Camas de habitación por tipoCamaId --");
         System.out.println("id: " + tipoCama.getTipoCamaId() + " Nombre: " + tipoCama.getTipoCamaNombre());
         System.out.println("***********************************");
+
+    }
+    
+    public void testReservaGuardar(){
+    
+    //carga huesped    
+    Huesped huesped;
+    huesped = new Huesped();
+    huesped.setHuespedId(1);
+    
+    //carga habitación
+    Habitacion habitacion;
+    habitacion = new Habitacion();
+    habitacion.setHabitacionId(2);
+    
+    ReservasData reservasData;
+    reservasData = new ReservasData(conexion);
+    Reservas reservas;
+    LocalDate fechaCheckIn = LocalDate.of(2018, 03, 23);
+    LocalDate fechaCheckOut = LocalDate.of(2018, 04, 2);
+    LocalDate fechaCheckRegistro = LocalDate.of(2018, 03, 23);
+    
+    long hora;
+    hora = ChronoUnit.DAYS.between(fechaCheckIn,fechaCheckOut);
+    Integer reservasDias = (int) (long) hora;
+    
+    reservas = new Reservas(fechaCheckIn, fechaCheckOut, fechaCheckRegistro, reservasDias, 3500.45, true, huesped, habitacion);
+    reservasData.reservaGuardar(reservas);
 
     }
 }
