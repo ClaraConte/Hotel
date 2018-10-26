@@ -309,7 +309,7 @@ public class VistaReservas extends javax.swing.JInternalFrame {
     
         //borraFilasTabla();
         //Llenar filas
-        //Habitacion habitacionPorTipo=(Habitacion)cbAlumnos.getSelectedItem();
+        //Habitacion habitacionPorTipo=(Habitacion)hacerReservaTipos.getSelectedItem();
         
         listaHabitaciones = (ArrayList)habitacionData.obtenerHabitacionesPorTipo(2);
         for(Habitacion habitacion:listaHabitaciones){

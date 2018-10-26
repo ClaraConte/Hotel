@@ -17,6 +17,7 @@ import hotel.modelo.ReservasData;
 import hotel.modelo.TipoCama;
 import hotel.modelo.TipoCamaData;
 import hotel.modelo.TipoHabitacion;
+import hotel.modelo.TipoHabitacionData;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -30,7 +31,6 @@ import java.time.temporal.ChronoUnit;
  *
  * @author clara
  */
-
 public class TestCase {
 
     private Connection connection = null;
@@ -210,32 +210,45 @@ public class TestCase {
         System.out.println("***********************************");
 
     }
-    
-    public void testReservaGuardar(){
-    
-    //carga huesped    
-    Huesped huesped;
-    huesped = new Huesped();
-    huesped.setHuespedId(1);
-    
-    //carga habitación
-    Habitacion habitacion;
-    habitacion = new Habitacion();
-    habitacion.setHabitacionId(2);
-    
-    ReservasData reservasData;
-    reservasData = new ReservasData(conexion);
-    Reservas reservas;
-    LocalDate fechaCheckIn = LocalDate.of(2018, 03, 23);
-    LocalDate fechaCheckOut = LocalDate.of(2018, 04, 2);
-    LocalDate fechaCheckRegistro = LocalDate.of(2018, 03, 23);
-    
-    long hora;
-    hora = ChronoUnit.DAYS.between(fechaCheckIn,fechaCheckOut);
-    Integer reservasDias = (int) (long) hora;
-    
-    reservas = new Reservas(fechaCheckIn, fechaCheckOut, fechaCheckRegistro, reservasDias, 3500.45, true, huesped, habitacion);
-    reservasData.reservaGuardar(reservas);
+
+    public void testBuscarTipoHabitacionPorId() {
+        int tipoHabitacionId = 2;
+        TipoHabitacionData tipoHabitacionData;
+        tipoHabitacionData = new TipoHabitacionData(conexion);
+        TipoHabitacion tipoHabitacion = null;
+        TipoHabitacion TipoHabitacion = tipoHabitacion;
+        tipoHabitacion = new TipoHabitacion();
+        tipoHabitacion = tipoHabitacionData.buscarTipoHabitacionPorId(tipoHabitacionId);
+        System.out.println("// Listar tipos de habitacion por tipoHabitacionId --");
+        System.out.println("id: " + tipoHabitacion.getTipoHabitacionId() + "Nombre: " + tipoHabitacion.getTipoHabitacionNombre());
+        System.out.println("***********************");
+    }
+
+    public void testReservaGuardar() {
+
+        //carga huesped    
+        Huesped huesped;
+        huesped = new Huesped();
+        huesped.setHuespedId(1);
+
+        //carga habitación
+        Habitacion habitacion;
+        habitacion = new Habitacion();
+        habitacion.setHabitacionId(2);
+
+        ReservasData reservasData;
+        reservasData = new ReservasData(conexion);
+        Reservas reservas;
+        LocalDate fechaCheckIn = LocalDate.of(2018, 03, 23);
+        LocalDate fechaCheckOut = LocalDate.of(2018, 04, 2);
+        LocalDate fechaCheckRegistro = LocalDate.of(2018, 03, 23);
+
+        long hora;
+        hora = ChronoUnit.DAYS.between(fechaCheckIn, fechaCheckOut);
+        Integer reservasDias = (int) (long) hora;
+
+        reservas = new Reservas(fechaCheckIn, fechaCheckOut, fechaCheckRegistro, reservasDias, 3500.45, true, huesped, habitacion);
+        reservasData.reservaGuardar(reservas);
 
     }
 }
