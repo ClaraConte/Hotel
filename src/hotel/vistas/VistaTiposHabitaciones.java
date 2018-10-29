@@ -5,20 +5,57 @@
  */
 package hotel.vistas;
 
+import hotel.modelo.Conexion;
+import hotel.modelo.TipoHabitacion;
+import hotel.modelo.TipoHabitacionData;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author clara
  */
 
 public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
+private ArrayList<TipoHabitacion> listaID;
 
     /**
      * Creates new form VistaTiposHabitaciones
      */
+     private Conexion conexion;
+    private TipoHabitacionData tipoHabitacionData;
+    
     public VistaTiposHabitaciones() {
         initComponents();
-    }
-
+        
+       
+        try {
+            conexion = new Conexion();
+           //carga el comboBox con los ID de la BD
+            tipoHabitacionData = new TipoHabitacionData(conexion);
+             listaID =(ArrayList)tipoHabitacionData.obtenerTipoHabitacion();
+            
+             for(TipoHabitacion item:listaID){
+            tipoHabitacionId.addItem(item.getTipoHabitacionId()); 
+            
+             
+            }
+        
+         
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TipoHabitacionData.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+         
+          
+      
+    
+ }
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,6 +80,7 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         tipoHabitacionId = new javax.swing.JComboBox<>();
+        nuevoID = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -61,15 +99,35 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
 
         tipoHabitacionGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/checked-1.png"))); // NOI18N
         tipoHabitacionGuardar.setText("GUARDAR");
+        tipoHabitacionGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionGuardarActionPerformed(evt);
+            }
+        });
 
         tipoHabitacionEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/pencil.png"))); // NOI18N
         tipoHabitacionEditar.setText("EDITAR");
+        tipoHabitacionEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionEditarActionPerformed(evt);
+            }
+        });
 
         tipoHabitacionLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/escoba.png"))); // NOI18N
         tipoHabitacionLimpiar.setText("LIMPIAR");
+        tipoHabitacionLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionLimpiarActionPerformed(evt);
+            }
+        });
 
         tipoHabitacionEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/cancel.png"))); // NOI18N
         tipoHabitacionEliminar.setText("ELIMINAR");
+        tipoHabitacionEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionEliminarActionPerformed(evt);
+            }
+        });
 
         textTipoHabitacionPersonas.setText("CAPACIDAD  MAX");
 
@@ -80,10 +138,38 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
         });
 
         tipoHabitacionPersonas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        tipoHabitacionPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionPersonasActionPerformed(evt);
+            }
+        });
+
+        tipoHabitacionPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionPrecioActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Persona/s");
 
-        tipoHabitacionId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nuevo ", "2", "3", "4" }));
+        tipoHabitacionId.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tipoHabitacionIdItemStateChanged(evt);
+            }
+        });
+        tipoHabitacionId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoHabitacionIdActionPerformed(evt);
+            }
+        });
+
+        nuevoID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/newspaper.png"))); // NOI18N
+        nuevoID.setText("Nuevo");
+        nuevoID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevoIDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,7 +201,10 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                             .addComponent(tipoHabitacionEliminar))
                         .addComponent(tipoHabitacionPrecio)
-                        .addComponent(tipoHabitacionId, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(tipoHabitacionId, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(51, 51, 51)
+                            .addComponent(nuevoID))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -129,15 +218,16 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
                 .addComponent(textTitleHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textTipoHabitacionDni)
-                    .addComponent(tipoHabitacionId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tipoHabitacionId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nuevoID))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textTipoHabitacionNombre)
                     .addComponent(tipoHabitacionNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textTipoHabitacionPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipoHabitacionPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,12 +250,171 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
 
     private void tipoHabitacionNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionNombreActionPerformed
         // TODO add your handling code here:
+        tipoHabitacionNombre.getText();
     }//GEN-LAST:event_tipoHabitacionNombreActionPerformed
 
+    private void tipoHabitacionIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionIdActionPerformed
+        // TODO add your handling code here:
+       tipoHabitacionId.getSelectedItem();
+    }//GEN-LAST:event_tipoHabitacionIdActionPerformed
 
+    private void tipoHabitacionIdItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tipoHabitacionIdItemStateChanged
+        // TODO add your handling code here:
+        
+         String tipoID = tipoHabitacionId.getSelectedItem().toString();
+         TipoHabitacion tipoHabitacion = tipoHabitacionData.buscarTipoHabitacion(Integer.parseInt(tipoID));
+         if(tipoHabitacion != null){
+          String personas = String.valueOf(tipoHabitacion.getTipoHabitacioCapacidadMax());
+             tipoHabitacionNombre.setText(tipoHabitacion.getTipoHabitacionNombre());
+        tipoHabitacionPrecio.setText(String.valueOf(tipoHabitacion.getTipoHabitacionPrecio()));
+        tipoHabitacionPersonas.setSelectedItem(personas);
+     } else {
+          tipoHabitacionNombre.setText("");   
+          tipoHabitacionPrecio.setText("");
+          tipoHabitacionPersonas.setSelectedItem("1");
+          
+         } 
+       
+    }//GEN-LAST:event_tipoHabitacionIdItemStateChanged
+
+    private void tipoHabitacionPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionPersonasActionPerformed
+        // TODO add your handling code here:
+     tipoHabitacionId.getSelectedItem();
+           
+    }//GEN-LAST:event_tipoHabitacionPersonasActionPerformed
+
+    private void tipoHabitacionPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionPrecioActionPerformed
+        // TODO add your handling code here:
+       
+        tipoHabitacionPrecio.getText();
+    }//GEN-LAST:event_tipoHabitacionPrecioActionPerformed
+
+    private void tipoHabitacionGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionGuardarActionPerformed
+        // TODO add your handling code here:
+        String idSelect = tipoHabitacionId.getSelectedItem().toString();
+         tipoHabitacionData.buscarTipoHabitacion(Integer.parseInt(idSelect));
+         TipoHabitacion tipoHabitacion = tipoHabitacionData.buscarTipoHabitacion(Integer.parseInt(idSelect));
+        if (tipoHabitacion != null) {
+          JOptionPane.showMessageDialog(null, "ID ya existe, seleccione Nuevo");  
+         }else{ 
+          if(tipoHabitacionPrecio.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null, "Precio por Noche no puede estar vacio");
+     }else if(!validarCampoPrecio(tipoHabitacionPrecio.getText())) {
+            JOptionPane.showMessageDialog(null, " Precio por noche solo ingrese valores numéricos");
+      }else if(tipoHabitacionNombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Nombre Tipo no puede estar vacio");      
+     }else {int idTipoHabitacion = Integer.parseInt(tipoHabitacionId.getSelectedItem().toString());
+              String nombreTipoHabitacion = tipoHabitacionNombre.getText();
+              int tipoHabitacioCapacidad = Integer.parseInt(tipoHabitacionPersonas.getSelectedItem().toString());
+              double precioTipoHabitacion = Double.parseDouble(tipoHabitacionPrecio.getText());
+              
+             TipoHabitacion tipoHabitacion1 = new TipoHabitacion(idTipoHabitacion, nombreTipoHabitacion,tipoHabitacioCapacidad, precioTipoHabitacion );
+              tipoHabitacionData.guardarTipoHabitacion(tipoHabitacion1);
+              JOptionPane.showMessageDialog(null, " Nuevo Tipo de Habitacion guardado");       
+          
+    }                              
+    
+    }//GEN-LAST:event_tipoHabitacionGuardarActionPerformed
+}
+      
+    private void tipoHabitacionEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionEditarActionPerformed
+        // TODO add your handling code here:
+        
+       int idTipoHabitacion = Integer.parseInt(tipoHabitacionId.getSelectedItem().toString());
+       TipoHabitacion tipoHabitacion = tipoHabitacionData.buscarTipoHabitacion(idTipoHabitacion);
+        if (!validarCampoPrecio(tipoHabitacionPrecio.getText())) {
+            JOptionPane.showMessageDialog(null, " Precio por noche solo ingrese valores numéricos");
+             }else if(tipoHabitacionPrecio.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null, "Precio por Noche no puede estar vacio");
+        }else {
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que quiere guardar los cambios?", "Alerta!", JOptionPane.YES_NO_OPTION);
+                if (resp != 1) {
+              
+            tipoHabitacion.setTipoHabitacioCapacidadMax(Integer.parseInt(tipoHabitacionPersonas.getSelectedItem().toString())); 
+            tipoHabitacion.setTipoHabitacionPrecio(Double.parseDouble(tipoHabitacionPrecio.getText()));
+                tipoHabitacionData.editarTipoHabitacion(tipoHabitacion);
+              JOptionPane.showMessageDialog(tipoHabitacionEditar, " Datos editados! ");  
+             }else {
+                    JOptionPane.showMessageDialog(tipoHabitacionEditar, "No se realizaron cambios");
+                    vaciarCampos();
+                }
+              }
+          
+        
+        
+    }//GEN-LAST:event_tipoHabitacionEditarActionPerformed
+
+    private void tipoHabitacionLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionLimpiarActionPerformed
+        // TODO add your handling code here:
+        vaciarCampos();
+    }//GEN-LAST:event_tipoHabitacionLimpiarActionPerformed
+
+    private void tipoHabitacionEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoHabitacionEliminarActionPerformed
+        // TODO add your handling code here:
+      int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que quiere borrar este tipo de habitacion?", "Alerta!", JOptionPane.YES_NO_OPTION);
+      if (resp != 1) {
+          int ID = Integer.parseInt(tipoHabitacionId.getSelectedItem().toString());
+          tipoHabitacionData.borrarTipoHabitacion(ID);
+          tipoHabitacionId.removeItem(ID);
+           vaciarCampos();
+           JOptionPane.showMessageDialog(null, "Tipo de habitacion borrado");
+           llenarCampos();
+      } else {   
+          JOptionPane.showMessageDialog(null, "Accion cancelada");
+                    
+          
+      }
+      
+      
+    }//GEN-LAST:event_tipoHabitacionEliminarActionPerformed
+
+    private void nuevoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoIDActionPerformed
+        // TODO add your handling code here:
+         String respuesta = JOptionPane.showInputDialog(null, "Ingrese un nuevo ID"); 
+   
+            TipoHabitacion tipoHabitacion = tipoHabitacionData.buscarTipoHabitacion(Integer.parseInt(respuesta));
+      if (tipoHabitacion != null) {
+          JOptionPane.showMessageDialog(null, "ID ya existe");  
+          }else{
+          tipoHabitacionId.addItem(Integer.parseInt(respuesta));
+              tipoHabitacionId.setSelectedItem(Integer.parseInt(respuesta));
+               tipoHabitacionNombre.setText("");
+        tipoHabitacionPersonas.setSelectedItem("1");
+        tipoHabitacionPrecio.setText("");
+      }
+        
+        
+    }//GEN-LAST:event_nuevoIDActionPerformed
+  //AUXILIARES
+    private boolean validarCampoPrecio(String value) {
+        try {
+            double num = Double.parseDouble(value);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+    }
+ // Vacia campos en formulario
+    private void vaciarCampos() {
+        tipoHabitacionId.setSelectedItem(1);
+        tipoHabitacionNombre.setText("");
+        tipoHabitacionPersonas.setSelectedItem("1");
+        tipoHabitacionPrecio.setText("");
+    }
+   //completar los campos despues de eliminar un tipoHabitacion 
+    private void llenarCampos(){
+         String tipoID = tipoHabitacionId.getSelectedItem().toString();
+         TipoHabitacion tipoHabitacion = tipoHabitacionData.buscarTipoHabitacion(Integer.parseInt(tipoID));
+          String personas = String.valueOf(tipoHabitacion.getTipoHabitacioCapacidadMax());
+             tipoHabitacionNombre.setText(tipoHabitacion.getTipoHabitacionNombre());
+        tipoHabitacionPrecio.setText(String.valueOf(tipoHabitacion.getTipoHabitacionPrecio()));
+        tipoHabitacionPersonas.setSelectedItem(personas);
+        
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton nuevoID;
     private javax.swing.JLabel textTipoHabitacionDni;
     private javax.swing.JLabel textTipoHabitacionNombre;
     private javax.swing.JLabel textTipoHabitacionPersonas;
@@ -174,7 +423,7 @@ public class VistaTiposHabitaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton tipoHabitacionEditar;
     private javax.swing.JButton tipoHabitacionEliminar;
     private javax.swing.JButton tipoHabitacionGuardar;
-    private javax.swing.JComboBox<String> tipoHabitacionId;
+    private javax.swing.JComboBox<Integer> tipoHabitacionId;
     private javax.swing.JButton tipoHabitacionLimpiar;
     private javax.swing.JTextField tipoHabitacionNombre;
     private javax.swing.JComboBox<String> tipoHabitacionPersonas;

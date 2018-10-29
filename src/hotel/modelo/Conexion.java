@@ -26,9 +26,9 @@ public class Conexion {
     }
 
     public Conexion() throws ClassNotFoundException {
-      this.url ="jdbc:mysql://192.168.64.2/Hotel";
-        this.usuario = "propietario";
-        this.password = "1234";
+      this.url ="jdbc:mysql://localhost/hotel";
+        this.usuario = "root";
+        this.password = "";
         
         Class.forName("org.mariadb.jdbc.Driver");
     }
