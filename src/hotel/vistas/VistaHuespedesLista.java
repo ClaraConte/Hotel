@@ -211,7 +211,7 @@ private DefaultTableModel modelo;
        if (listaHuespedDni.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, " Dni no puede estar vacio ");
             
-        } else if (!validarCampoNumEntero(listaHuespedDni.getText())) {
+        } else if (!validarCampoDni(listaHuespedDni.getText())) {
             JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");
             listaHuespedDni.setText("");
             cargaDatos();
@@ -226,7 +226,7 @@ private DefaultTableModel modelo;
             }  
       }   
        }
-     private boolean validarCampoNumEntero(String value) {
+     private boolean validarCampoDni(String value) {
         try {
             int num = Integer.parseInt(value);
             return true;
