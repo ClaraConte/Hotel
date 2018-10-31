@@ -25,8 +25,8 @@ public class TipoHabitacion {
         this.tipoHabitacionPrecio = tipoHabitacionPrecio;
     }
 
-    public TipoHabitacion(int i, String suite) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public TipoHabitacion(String tipoHabitacionNombre) {
+        this.tipoHabitacionNombre = tipoHabitacionNombre;
     }
 
     public int getTipoHabitacionId() {
@@ -61,4 +61,9 @@ public class TipoHabitacion {
         this.tipoHabitacionPrecio = tipoHabitacionPrecio;
     }
 
+    @Override
+    public String toString() {
+        return tipoHabitacionNombre;
+    }
+    
 }

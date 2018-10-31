@@ -169,5 +169,4 @@ public class HabitacionData {
             System.out.println("Error al editar un huesped: " + ex.getMessage());
         }
     }
-    
 }

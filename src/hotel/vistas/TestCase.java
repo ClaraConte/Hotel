@@ -218,7 +218,7 @@ public class TestCase {
         TipoHabitacion tipoHabitacion = null;
         TipoHabitacion TipoHabitacion = tipoHabitacion;
         tipoHabitacion = new TipoHabitacion();
-        tipoHabitacion = tipoHabitacionData.buscarTipoHabitacionPorId(tipoHabitacionId);
+        tipoHabitacion = tipoHabitacionData.buscarTipoHabitacion(tipoHabitacionId);
         System.out.println("// Listar tipos de habitacion por tipoHabitacionId --");
         System.out.println("id: " + tipoHabitacion.getTipoHabitacionId() + "Nombre: " + tipoHabitacion.getTipoHabitacionNombre());
         System.out.println("***********************");

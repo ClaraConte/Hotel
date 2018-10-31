@@ -15,6 +15,8 @@ import hotel.modelo.HuespedData;
 import hotel.modelo.TipoCama;
 import hotel.modelo.TipoCamaData;
 import hotel.modelo.TipoHabitacion;
+import hotel.modelo.TipoHabitacionData;
+
 
 /**
  *
@@ -74,7 +76,7 @@ public class Test {
             //testCase.testCamasHabitacionListarPorTipo();
             
             // Listar Camas de habitacion por ID habitación
-            //testCase.testObtenerCamasPorHabitacionId();
+            testCase.testObtenerCamasPorHabitacionId();
             
             /**
              * *********** TEST TIPOS DE CAMAS  ***********
@@ -88,13 +90,12 @@ public class Test {
              */
             //Buscar tipo de habitacion por id
             testCase.testBuscarTipoHabitacionPorId();
-            //testCase.testBuscarTipoCamaPorId();
             
             /**
              * *********** TEST RESERVAS  ***********
              */
             // Guardar Reserva
-            testCase.testReservaGuardar();
+            //testCase.testReservaGuardar();
  
         } catch (Exception e) {
             System.out.println("Error al instanciar la clase conexion: " + e.getMessage());

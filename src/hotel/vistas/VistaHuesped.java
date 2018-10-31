@@ -22,7 +22,6 @@ import javax.swing.border.Border;
  *
  * @author clara
  */
-
 public class VistaHuesped extends javax.swing.JInternalFrame {
 
     /**
@@ -267,7 +266,7 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_huespedBuscarActionPerformed
     }
-
+    
     private void huespedBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedBorrarActionPerformed
 
         if (!validarCampoNumEntero(huespedDni.getText())) {
@@ -295,6 +294,7 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
             }
         }
     }
+    
     private void huespedEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedEditarActionPerformed
         if (!validarCampoNumEntero(huespedDni.getText())) {
             JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");
@@ -323,6 +323,7 @@ public class VistaHuesped extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_huespedEditarActionPerformed
 
     }
+    
     private void huespedLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedLimpiarActionPerformed
         vaciarCampos();
     }//GEN-LAST:event_huespedLimpiarActionPerformed
