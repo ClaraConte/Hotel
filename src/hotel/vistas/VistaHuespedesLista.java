@@ -5,19 +5,87 @@
  */
 package hotel.vistas;
 
+import hotel.modelo.Conexion;
+import hotel.modelo.HabitacionData;
+import hotel.modelo.Huesped;
+import hotel.modelo.HuespedData;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author clara
  */
 public class VistaHuespedesLista extends javax.swing.JInternalFrame {
-
+private ArrayList<Huesped> listaHuesped;
+private DefaultTableModel modelo;
     /**
      * Creates new form VistaHabitaciones
      */
+     private Conexion conexion;
+    private HuespedData huespedData;
+    
     public VistaHuespedesLista() {
         initComponents();
-    }
+        
+       
+        try {
+            conexion = new Conexion();
+            modelo=new DefaultTableModel();
+           
+          headersTablaHuespedes();  
+        cargaDatos();
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HabitacionData.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        
+          
+    
+ }
+      public void borraFilasTabla(){
 
+            int a =modelo.getRowCount()-1;
+           
+            for(int i=a;i>=0;i--){
+                modelo.removeRow(i );
+                
+            }
+      }
+      
+       public void cargaDatos(){
+            
+        
+         huespedData = new HuespedData(conexion);
+          
+           
+        //Llenar filas
+        listaHuesped = (ArrayList)huespedData.obtenerHuespedes();
+        for(Huesped h:listaHuesped){
+        
+            modelo.addRow(new Object[]{h.getHuespedDni(),h.getHuespedNombre(),h.getHuespedDomicilio(),h.getHuespedEmail(),h.getHuespedCelular()});
+        }
+        
+     
+    }   
+ public void headersTablaHuespedes(){
+        //Titulos de Columnas
+        ArrayList<Object> columnas = new ArrayList<Object>();
+        columnas.add("DNI");
+        columnas.add("Nombre");
+        columnas.add("Domicilio");
+        columnas.add("E-mail");
+        columnas.add("Telefono");
+        
+        
+        for(Object it:columnas){
+            modelo.addColumn(it);
+        }
+         jTable1.setModel(modelo);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,6 +156,11 @@ public class VistaHuespedesLista extends javax.swing.JInternalFrame {
 
         ListaHuespedBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hotel/vistas/resources/search.png"))); // NOI18N
         ListaHuespedBuscar.setText("BUSCAR");
+        ListaHuespedBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaHuespedBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,34 +169,33 @@ public class VistaHuespedesLista extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(titleListaHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(listaHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(124, 124, 124)
-                                .addComponent(ListaHuespedBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(36, 36, 36)
+                        .addComponent(titleListaHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(listaHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(124, 124, 124)
+                        .addComponent(ListaHuespedBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(278, 278, 278)
-                        .addComponent(titleListaHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(titleListaHuesped, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(titleListaHuesped)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titleListaHuespedDni)
                     .addComponent(listaHuespedDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ListaHuespedBuscar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -132,6 +204,37 @@ public class VistaHuespedesLista extends javax.swing.JInternalFrame {
     private void listaHuespedDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaHuespedDniActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_listaHuespedDniActionPerformed
+
+    private void ListaHuespedBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaHuespedBuscarActionPerformed
+        // TODO add your handling code here:
+        borraFilasTabla();
+       if (listaHuespedDni.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, " Dni no puede estar vacio ");
+            
+        } else if (!validarCampoDni(listaHuespedDni.getText())) {
+            JOptionPane.showMessageDialog(null, " Dni solo ingrese valores numéricos ");
+            listaHuespedDni.setText("");
+            cargaDatos();
+        }else{ 
+      int buscarHuespedDni = Integer.parseInt(listaHuespedDni.getText());
+            Huesped huesped = huespedData.buscarHuesped(buscarHuespedDni);
+
+            if(huesped != null) {
+        modelo.addRow(new Object[]{huesped.getHuespedDni(),huesped.getHuespedNombre(),huesped.getHuespedDomicilio(),huesped.getHuespedEmail(),huesped.getHuespedCelular()});
+      }else{
+                JOptionPane.showMessageDialog(null, "El DNI no existe, o ha introducido caracteres no válidos. Solo ingrese números. ");
+            }  
+      }   
+       }
+     private boolean validarCampoDni(String value) {
+        try {
+            int num = Integer.parseInt(value);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }   
+        
+    }//GEN-LAST:event_ListaHuespedBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

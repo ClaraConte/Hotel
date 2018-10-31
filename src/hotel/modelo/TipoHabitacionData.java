@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,10 +27,83 @@ public class TipoHabitacionData {
             this.conexion = conexion;
             connection = conexion.getConexion();
         } catch (SQLException ex) {
-            System.out.println("Error al abrir al obtener la conexion");
+            System.out.println("Error al obtener la conexion");
+        }
+    }
+    
+     public void borrarTipoHabitacion(int tipoHabitacionId) {
+        try {
+
+            String sql = "DELETE FROM tipoHabitacion WHERE tipoHabitacionId =?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, tipoHabitacionId);
+
+            statement.executeUpdate();
+
+            statement.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error al borrar un tipo de habitacion: " + ex.getMessage());
+        }
+    }
+    
+    public void editarTipoHabitacion(TipoHabitacion tipoHabitacion) {
+        try {
+
+            String sql = "UPDATE tipoHabitacion SET  tipoHabitacioCapacidadMax = ?, tipoHabitacionPrecio = ? WHERE tipoHabitacionId = ?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            
+            statement.setInt(1,tipoHabitacion.getTipoHabitacioCapacidadMax());
+            statement.setDouble(2,tipoHabitacion.getTipoHabitacionPrecio());
+            statement.setInt(3,tipoHabitacion.getTipoHabitacionId());
+
+            statement.executeUpdate();
+            
+             ResultSet rs = statement.getGeneratedKeys();
+
+            if (rs.next()) {
+                tipoHabitacion.setTipoHabitacionId(rs.getInt(1));
+            } else {
+                System.out.println("No se pudo obtener el id luego de insertar un tipoHabitacion");
+            }
+            
+            statement.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error al editar un tipo de habitacion: " + ex.getMessage());
         }
     }
 
+     public void guardarTipoHabitacion(TipoHabitacion tipoHabitacion) {
+        try {
+
+            String sql = "INSERT INTO tipoHabitacion (tipoHabitacionId, tipoHabitacionNombre, tipoHabitacioCapacidadMax, tipoHabitacionPrecio) VALUES ( ? , ? , ?, ?);";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, tipoHabitacion.getTipoHabitacionId());
+            statement.setString(2, tipoHabitacion.getTipoHabitacionNombre());
+            statement.setInt(3, tipoHabitacion.getTipoHabitacioCapacidadMax());
+            statement.setDouble(4, tipoHabitacion.getTipoHabitacionPrecio());
+            
+
+            statement.executeUpdate();
+
+            ResultSet rs = statement.getGeneratedKeys();
+
+            if (rs.next()) {
+                tipoHabitacion.setTipoHabitacionId(rs.getInt(1));
+            } else {
+                System.out.println("No se pudo obtener el id luego de insertar un tipoHabitacion");
+            }
+            statement.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Error al insertar un tipoHabitacion: " + ex.getMessage());
+        }
+    }
+    
     public TipoHabitacion buscarTipoHabitacion(int tipoHabitacionId){
     TipoHabitacion tipoHabitacion=null;
         try {
@@ -79,22 +153,5 @@ public class TipoHabitacionData {
         }
 
         return tipoHabitaciones;
-    }
-    public int TipoHabitacionCapacidadMax(){
-        int max = 0;
-        try {
-            
-            String sql = "SELECT MAX(tipoHabitacioCapacidadMax) as value FROM tipohabitacion";
-
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
-            while(resultSet.next()){
-                max= resultSet.getInt("value");
-            }
-                statement.close();
-            } catch (SQLException ex) {
-            System.out.println("Error al mostrar tipoHabitacion por ID: " + ex.getMessage());
-        }
-        return max;
     }
 }
