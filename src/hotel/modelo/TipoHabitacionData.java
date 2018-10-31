@@ -108,18 +108,20 @@ public class TipoHabitacionData {
     TipoHabitacion tipoHabitacion=null;
         try {
             
-            String sql = "SELECT * FROM tipohabitacion WHERE tipoHabitacionId =?;";
+            String sql = "SELECT * FROM tipoHabitacion WHERE tipoHabitacionId =?;";
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, tipoHabitacionId);
+           
+            
             ResultSet resultSet=statement.executeQuery();
             
             while(resultSet.next()){
                 tipoHabitacion = new TipoHabitacion();
                 tipoHabitacion.setTipoHabitacionId(resultSet.getInt("tipoHabitacionId"));
                 tipoHabitacion.setTipoHabitacionNombre(resultSet.getString("tipoHabitacionNombre"));
-                tipoHabitacion.setTipoHabitacioCapacidadMax(resultSet.getInt("tipoHabitacioCapacidadMax"));
                 tipoHabitacion.setTipoHabitacionPrecio(resultSet.getDouble("tipoHabitacionPrecio"));
+                tipoHabitacion.setTipoHabitacioCapacidadMax(resultSet.getInt("tipoHabitacioCapacidadMax"));
             }      
             statement.close();
             
