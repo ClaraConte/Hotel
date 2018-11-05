@@ -528,7 +528,8 @@ calcular();    }//GEN-LAST:event_hacerReservaFechaFinPropertyChange
                 tipoHabitacionId = tipoHabitacionData.buscarTipoHabitacion(habitacionTipos.getTipoHabitacionId().getTipoHabitacionId());
                 // Busca camas que tiene cada habitación
                 listaCamasHabitacion = (ArrayList) camasHabitacionData.obtenerCamasPorHabitacionId(habitacion.getHabitacionId());
-
+                // Vacia lista para reutilizar
+                cama.clear();
                 for (CamasHabitacion camasHabitacion : listaCamasHabitacion) {
                     // Guarda Id de tipo de cama
                     tipoCamaId = camasHabitacion.getTipoCamaId();
@@ -537,10 +538,10 @@ calcular();    }//GEN-LAST:event_hacerReservaFechaFinPropertyChange
                     // Los guarda en el ArrayList
                     cama.add(tipoCama.getTipoCamaNombre());
                 }
-                // Transforma ArrayList cama en Set 
+                // Transforma ArrayList cama en Set
                 Set<String> setCama = new HashSet<String>(cama);
                 // Vacía para reutilizar
-                camasDecripcion = "";
+                camasDecripcion = " ";
                 for (String keyCama : setCama) {
                     // Cuenta la cantidad de camas iguales que tiene una habitacion y agrupa de es manera. Crea string con esos datos
                     camasDecripcion += Collections.frequency(cama, keyCama) + " - " + keyCama + " ";
@@ -618,10 +619,7 @@ calcular();    }//GEN-LAST:event_hacerReservaFechaFinPropertyChange
     
     public void calcular(){
         TipoHabitacion habitacionPorTipo = (TipoHabitacion) hacerReservaTipos.getSelectedItem();
-        
         calculaMontoTotalAPagar(habitacionPorTipo.getTipoHabitacionPrecio(),calculaDiasReservar());
-                JOptionPane.showMessageDialog(null," calendario "+calculaDiasReservar()+" X "+habitacionPorTipo.getTipoHabitacionPrecio());
-
     }
     
     public boolean isCellEditable(int row, int column) { 
