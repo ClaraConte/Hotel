@@ -153,7 +153,15 @@ public class TipoHabitacionData {
         } catch (SQLException ex) {
             System.out.println("Error al obtener los tipos de habitacion: " + ex.getMessage());
         }
-
+        
+        
         return tipoHabitaciones;
+    }
+    
+    
+    
+    
+    public TipoHabitacion buscarTipoHabitacionPorId(int tipoHabitacionId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
