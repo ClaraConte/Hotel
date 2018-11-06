@@ -1,9 +1,9 @@
-nbproject/private/
+nbproject/*
 build/*
-nbbuild/
+nbbuild/*
 dist/
-nbdist/
-.nb-gradle/
+nbdist/*
+.nb-gradle/*
 nbactions.xml
 nb-configuration.xml
 manifest.mf

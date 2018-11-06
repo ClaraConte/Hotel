@@ -34,7 +34,7 @@ public class TipoHabitacionData {
      public void borrarTipoHabitacion(int tipoHabitacionId) {
         try {
 
-            String sql = "DELETE FROM tipoHabitacion WHERE tipoHabitacionId =?;";
+            String sql = "DELETE FROM tipohabitacion WHERE tipoHabitacionId =?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, tipoHabitacionId);
@@ -51,7 +51,7 @@ public class TipoHabitacionData {
     public void editarTipoHabitacion(TipoHabitacion tipoHabitacion) {
         try {
 
-            String sql = "UPDATE tipoHabitacion SET  tipoHabitacioCapacidadMax = ?, tipoHabitacionPrecio = ? WHERE tipoHabitacionId = ?;";
+            String sql = "UPDATE tipohabitacion SET  tipoHabitacioCapacidadMax = ?, tipoHabitacionPrecio = ? WHERE tipoHabitacionId = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             
@@ -79,7 +79,7 @@ public class TipoHabitacionData {
      public void guardarTipoHabitacion(TipoHabitacion tipoHabitacion) {
         try {
 
-            String sql = "INSERT INTO tipoHabitacion (tipoHabitacionId, tipoHabitacionNombre, tipoHabitacioCapacidadMax, tipoHabitacionPrecio) VALUES ( ? , ? , ?, ?);";
+            String sql = "INSERT INTO tipohabitacion (tipoHabitacionId, tipoHabitacionNombre, tipoHabitacioCapacidadMax, tipoHabitacionPrecio) VALUES ( ? , ? , ?, ?);";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, tipoHabitacion.getTipoHabitacionId());
@@ -112,14 +112,16 @@ public class TipoHabitacionData {
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, tipoHabitacionId);
+           
+            
             ResultSet resultSet=statement.executeQuery();
             
             while(resultSet.next()){
                 tipoHabitacion = new TipoHabitacion();
                 tipoHabitacion.setTipoHabitacionId(resultSet.getInt("tipoHabitacionId"));
                 tipoHabitacion.setTipoHabitacionNombre(resultSet.getString("tipoHabitacionNombre"));
-                tipoHabitacion.setTipoHabitacioCapacidadMax(resultSet.getInt("tipoHabitacioCapacidadMax"));
                 tipoHabitacion.setTipoHabitacionPrecio(resultSet.getDouble("tipoHabitacionPrecio"));
+                tipoHabitacion.setTipoHabitacioCapacidadMax(resultSet.getInt("tipoHabitacioCapacidadMax"));
             }      
             statement.close();
             
